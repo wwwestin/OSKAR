@@ -25,6 +25,8 @@ function CreateProfile ({setUser,user,update}) {
             }),
         }).then(response =>{
             setLoading(false)
+            setUsername("")
+            setPassword("")
             console.log(response)
             if(response.ok){
                 response.json().then(info=> {

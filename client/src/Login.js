@@ -20,7 +20,9 @@ function Login ({user,onLogin}) {
         body: JSON.stringify({username,password}) 
     })
     .then(data => {
-        setLoading(false);
+        setLoading(false)
+        setUsername("")
+        setPassword("")
         if (data.ok){
             data.json().then(el=> onLogin(el) )
         } else {
