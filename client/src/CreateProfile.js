@@ -10,8 +10,9 @@ function CreateProfile ({setUser,user,update}) {
     const [loading, setLoading] = useState(false);
 
     function handleSubmit(e){
-        e.preventDefault()
-        setLoading(true) 
+        e.preventDefault();
+        setError([]);
+        setLoading(true); 
         fetch("/signup", {
             method: "POST",
             headers:{
@@ -34,7 +35,6 @@ function CreateProfile ({setUser,user,update}) {
             }
         })
         e.target.reset() 
-        console.log("submitted")
     }
 
     return (
@@ -57,7 +57,6 @@ function CreateProfile ({setUser,user,update}) {
                         onChange={x => setPassword(x.target.value)}
                         autoComplete= "current-password"
                     />
-
                 <label for = "passwordConfirm">Confirm Password</label>
                     <input type="password"
                     className="createProfileInput"
@@ -69,7 +68,6 @@ function CreateProfile ({setUser,user,update}) {
                     <br></br>
                     <div className="buttonChoice">
                         <button className="btn-gradient" onSubmit={handleSubmit} type="submit" >{loading? "Loading...": "Create Profile"}</button>
-
                             <Link to="/"> <button className='btn-gradient'>I Already Have a Profile</button></Link>
                 </div>
             </form>

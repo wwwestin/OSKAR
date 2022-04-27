@@ -8,7 +8,6 @@ import SavedDevices from "./SavedDevices";
 import CreatePatient from "./CreatePatient";
 
 
-
 function App() {
 
   const [user, setUser] = useState(null)

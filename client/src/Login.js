@@ -43,9 +43,9 @@ function Login ({user,onLogin}) {
                 className="inputLogin"
                 required value={username}
                 onChange={e => setUsername(e.target.value) }
-        />
-    <p className="error"> {error}</p>
-        <br></br>
+            />
+        <p className="error">{error}</p>
+                <br></br>
             <label for="password"> <b>Password</b> </label>
                 <br></br>
                 <input 
@@ -56,14 +56,14 @@ function Login ({user,onLogin}) {
                     required id="password"
                     value={password}
                     onChange={ e=> setPassword(e.target.value)}
-        />  
-    <p className="error"> {pass}</p>
-        <br></br>
-            <div className="btnSection">
-            <button className= "btn btn-gradient btn-glow" type="submit"> 
-                 {loading? <Link to="/CreatePatient"> "Loading..." </Link>: "Login" }
-            </button>
-            <Link to="/CreateProfile"> <button className= "btn btn-gradient btn-glow">Create Profile</button> </Link>
+                />  
+        <p className="error"> {pass}</p>
+                <br></br>
+            <div className="buttonSection">
+                <button className= "loginButtons" type="submit"> 
+                    {loading? <Link to="/CreatePatient"> "Loading..." </Link>: "Login" }
+                </button>
+            <Link to="/CreateProfile"> <button className= "loginButtons">Create Profile</button> </Link>
         </div>
     </form>
     )
