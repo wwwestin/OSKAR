@@ -24,6 +24,7 @@ function Header ({user,onLogout}){
               <nav>
                   <ul>
                       <li><a href="/">Home</a></li>
+                      <li><a href="/CreatePatient">Add Patient</a></li>
                       <li><a href="/EditProfile">Edit Profile</a></li>
                       <li><a href="/SavedDevices">Saved Devices</a></li>
                   </ul>

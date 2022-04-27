@@ -63,7 +63,7 @@ function Login ({user,onLogin}) {
                 <br></br>
             <div className="buttonSection">
                 <button className= "loginButtons" type="submit"> 
-                    {loading? <Link to="/CreatePatient"> "Loading..." </Link>: "Login" }
+                    {loading? <Link to="/CreatePatient"> "Loading..."</Link>: "Login" }
                 </button>
             <Link to="/CreateProfile"> <button className= "loginButtons">Create Profile</button> </Link>
         </div>
