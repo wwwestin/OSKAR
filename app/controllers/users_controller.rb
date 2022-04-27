@@ -9,10 +9,10 @@ class UsersController < ApplicationController
     end
 
     def show
-        render json: @current_user,  status: 200
+        render json: @current_user, status: 200
     end
 
-    def trans
+    def pats
         render json: @current_user, serializer: UserWithPatientsSerializer, status: 200
     end
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :password, :password_confirmation, :image_url)
+        params.permit(:username, :password, :password_confirmation)
     end
 
     def find_user
