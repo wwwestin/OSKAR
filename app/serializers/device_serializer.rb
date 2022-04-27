@@ -1,4 +1,4 @@
 class DeviceSerializer < ActiveModel::Serializer
-  attributes :id, :ankle_angle, :sva, :type, :footwear
+  attributes :id, :ankle_angle, :sva, :brace, :footwear
   
 end

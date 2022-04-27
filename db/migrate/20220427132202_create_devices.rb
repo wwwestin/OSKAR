@@ -4,7 +4,7 @@ class CreateDevices < ActiveRecord::Migration[6.1]
       t.belongs_to :patient, null: false, foreign_key: true
       t.integer :ankle_angle
       t.string  :sva
-      t.string  :type
+      t.string  :brace
       t.string  :footwear
 
       t.timestamps

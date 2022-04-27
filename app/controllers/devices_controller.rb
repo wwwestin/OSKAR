@@ -17,7 +17,7 @@ class DevicesController < ApplicationController
     private
 
     def device_params
-        params.permit(:ankle_angle, :sva, :type, :footwear, :patient_id)
+        params.permit(:ankle_angle, :sva, :brace, :footwear, :patient_id)
     end
 
     def find_device
