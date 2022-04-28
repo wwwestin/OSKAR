@@ -5,12 +5,20 @@ function PatientGoals () {
 
     const navigate = useNavigate();
 
-    //const [newGoal, setNewGoal] = useState([]);
+    const [patient, setPatient] = useState([]);
+
+    useEffect(() => {
+        fetch("me/patients")
+        .then((r) => r.json())
+        .then(setPatient)
+      }, []); 
+
+      const {id} = patient;
 
     function handleSubmit1(event){
         event.preventDefault()
         navigate('PatientRom')
-        fetch("/patients/id", {
+        fetch(`/patients/${id}`, {
           method: "PATCH",
           headers:{
               "Content-Type": "application/json"
@@ -23,7 +31,7 @@ function PatientGoals () {
         event.preventDefault()
         navigate('PatientRom')
         fetch("/patients", {
-          method: "POST",
+          method: "PATCH",
           headers:{
               "Content-Type": "application/json"
           },
@@ -35,7 +43,7 @@ function PatientGoals () {
         event.preventDefault()
         navigate('PatientRom')
         fetch("/patients", {
-          method: "POST",
+          method: "PATCH",
           headers:{
               "Content-Type": "application/json"
           },
