@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import PatientGoals from "./PatientGoals";
 
-function CreatePatient ({user}) {
+function CreatePatient () {
 
     const navigate = useNavigate();
-    
+
+
     const [newPatient, setNewPatient] = useState([]);
 
     function onChange(event) {

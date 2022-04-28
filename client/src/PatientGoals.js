@@ -10,12 +10,12 @@ function PatientGoals () {
     function handleSubmit1(event){
         event.preventDefault()
         navigate('PatientRom')
-        fetch("/patients.goals", {
-          method: "POST",
+        fetch("/patients/id", {
+          method: "PATCH",
           headers:{
               "Content-Type": "application/json"
           },
-          body: JSON.stringify("Full Gait Cycles"),
+          body: JSON.stringify({goal: "Full Gait Cycles"}),
        })
       }
     
@@ -27,7 +27,7 @@ function PatientGoals () {
           headers:{
               "Content-Type": "application/json"
           },
-          body: JSON.stringify("Stepping"),
+          body: JSON.stringify({goal: "Stepping"}),
        })
       }
 
@@ -39,7 +39,7 @@ function PatientGoals () {
           headers:{
               "Content-Type": "application/json"
           },
-          body: JSON.stringify("Standing"),
+          body: JSON.stringify({goal: "Standing"}),
        })
       }
     

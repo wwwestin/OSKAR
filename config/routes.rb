@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create]
-  resources :patients, only: [:index, :show, :create]
+  resources :patients, only: [:index, :show, :create, :update]
   resources :devices, only: [:index, :show, :create]
 
   post "/signup", to: "users#create"

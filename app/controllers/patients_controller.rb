@@ -18,6 +18,11 @@ class PatientsController < ApplicationController
         render json: patient, status: 200
     end
 
+    def update
+        patient = find_patient
+        render json: patient.update(patient_params), status: :ok
+    end
+
     private
 
     def patient_params
