@@ -6,6 +6,8 @@ import Header from "./Header";
 import EditProfile from "./EditProfile";
 import SavedDevices from "./SavedDevices";
 import CreatePatient from "./CreatePatient";
+import PatientGoals from "./PatientGoals";
+import PatientRom from "./PatientRom";
 
 
 function App() {
@@ -38,6 +40,9 @@ function App() {
           <Route exact path= "/EditProfile" element = { <EditProfile /> } />
           <Route exact path= "/SavedDevices" element = { <SavedDevices /> } />
           <Route exact path= "/CreatePatient" element = { <CreatePatient /> } />
+          <Route exact path= "/PatientGoals" element = { <PatientGoals /> } />
+          <Route exact path= "/CreatePatient/PatientGoals" element = { <PatientGoals /> } />
+          <Route exact path= "/PatientRom" element = { <PatientRom /> } />
         </Routes>
     </div>
   );
