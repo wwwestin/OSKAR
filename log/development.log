@@ -2913,3 +2913,294 @@ Processing by SessionsController#destroy as */*
 Completed 204 No Content in 19ms (ActiveRecord: 8.3ms | Allocations: 3731)
 
 
+  [1m[35m (41.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (44.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (55.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_development"[0m
+  [1m[35m (46.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_test"[0m
+  [1m[35m (241.1ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
+  [1m[35m (185.4ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35m (29.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (58.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1087325618115650655)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220427132125)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (48.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220427132125"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePatients (20220427132151)
+  [1m[36mTRANSACTION (38.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "patients" ("id" bigserial primary key, "user_id" bigint NOT NULL, "name" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_623f05c630"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_patients_on_user_id" ON "patients" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220427132151"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDevices (20220427132202)
+  [1m[36mTRANSACTION (42.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "devices" ("id" bigserial primary key, "patient_id" bigint NOT NULL, "ankle_angle" integer, "sva" character varying, "brace" character varying, "footwear" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_cc84773d6d"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_devices_on_patient_id" ON "devices" ("patient_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220427132202"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddGoalToPatients (20220428182751)
+  [1m[36mTRANSACTION (42.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "patients" ADD "goal" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (10.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220428182751"]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (26.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-28 18:32:15.840988"], ["updated_at", "2022-04-28 18:32:15.840988"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1087325618115650655)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Troy"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Troy"], ["password_digest", "$2a$12$vOoIWyvKKUiAZq5.Z3luhOv78gARENmkyepiQ7H4Mcsu.SCT8elUC"], ["created_at", "2022-04-28 18:32:16.309489"], ["updated_at", "2022-04-28 18:32:16.309489"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bono"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Bono"], ["password_digest", "$2a$12$FAtJ4HL9INkI6G5lCgrIwO7So.nNbWtH1MXbGq45y3TG7LeK.UKAC"], ["created_at", "2022-04-28 18:32:16.596091"], ["updated_at", "2022-04-28 18:32:16.596091"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Claire Manix"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Claire Manix"], ["password_digest", "$2a$12$Wbm5hqihhJY.8IT05rHP1uek8zLdogtsTaKE6UjHPUwmZSf5f5VIq"], ["created_at", "2022-04-28 18:32:16.847326"], ["updated_at", "2022-04-28 18:32:16.847326"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Create (1.0ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["name", 123], ["created_at", "2022-04-28 18:32:16.879816"], ["updated_at", "2022-04-28 18:32:16.879816"], ["goal", "Stepping"]]
+  [1m[36mTRANSACTION (13.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.5ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["name", 456], ["created_at", "2022-04-28 18:32:16.904138"], ["updated_at", "2022-04-28 18:32:16.904138"], ["goal", "Full Gait Cycles"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.8ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["name", 650], ["created_at", "2022-04-28 18:32:16.914615"], ["updated_at", "2022-04-28 18:32:16.914615"], ["goal", "Stepping"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.6ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["name", 12], ["created_at", "2022-04-28 18:32:16.923281"], ["updated_at", "2022-04-28 18:32:16.923281"], ["goal", "Full Gait Cycles"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.4ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["name", 35], ["created_at", "2022-04-28 18:32:16.933173"], ["updated_at", "2022-04-28 18:32:16.933173"], ["goal", "Standing"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.4ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["name", 55], ["created_at", "2022-04-28 18:32:16.939209"], ["updated_at", "2022-04-28 18:32:16.939209"], ["goal", "Stepping"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.3ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["name", 50], ["created_at", "2022-04-28 18:32:16.947441"], ["updated_at", "2022-04-28 18:32:16.947441"], ["goal", "Full Gait Cycles"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.5ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["name", 90], ["created_at", "2022-04-28 18:32:16.952783"], ["updated_at", "2022-04-28 18:32:16.952783"], ["goal", "Full Gait Cycles"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.3ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["name", 42], ["created_at", "2022-04-28 18:32:16.959269"], ["updated_at", "2022-04-28 18:32:16.959269"], ["goal", "Full Gait Cycles"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.3ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["name", 999], ["created_at", "2022-04-28 18:32:16.964373"], ["updated_at", "2022-04-28 18:32:16.964373"], ["goal", "Full Gait Cycles"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDevice Create (1.2ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 3], ["ankle_angle", 5], ["sva", "10-12"], ["brace", "SAFO"], ["footwear", "Rocker Sole"], ["created_at", "2022-04-28 18:32:16.983031"], ["updated_at", "2022-04-28 18:32:16.983031"]]
+  [1m[36mTRANSACTION (40.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.4ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 4], ["ankle_angle", 3], ["sva", "14-15"], ["brace", "SAFO with Free MPTJ"], ["footwear", "Flat/Rounded Sole"], ["created_at", "2022-04-28 18:32:17.031626"], ["updated_at", "2022-04-28 18:32:17.031626"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.8ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 7], ["ankle_angle", 10], ["sva", "10-12"], ["brace", "SAFO"], ["footwear", "Flat/Rounded Sole"], ["created_at", "2022-04-28 18:32:17.038544"], ["updated_at", "2022-04-28 18:32:17.038544"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.4ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 8], ["ankle_angle", 12], ["sva", "15-19"], ["brace", "SAFO with Free MPTJ"], ["footwear", "Point Loading Rocker"], ["created_at", "2022-04-28 18:32:17.045886"], ["updated_at", "2022-04-28 18:32:17.045886"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.4ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 10], ["ankle_angle", 15], ["sva", "14-15"], ["brace", "SAFO with Free MPTJ"], ["footwear", "Negative Heel"], ["created_at", "2022-04-28 18:32:17.051668"], ["updated_at", "2022-04-28 18:32:17.051668"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.4ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 2], ["ankle_angle", 3], ["sva", "14-15"], ["brace", "SAFO with Fixed MPTJ"], ["footwear", "Negative Heel"], ["created_at", "2022-04-28 18:32:17.061587"], ["updated_at", "2022-04-28 18:32:17.061587"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.3ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 1], ["ankle_angle", 10], ["sva", "10-12"], ["brace", "SAFO"], ["footwear", "Rocker Sole"], ["created_at", "2022-04-28 18:32:17.066924"], ["updated_at", "2022-04-28 18:32:17.066924"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.3ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 6], ["ankle_angle", 5], ["sva", "14-15"], ["brace", "SAFO"], ["footwear", "Plain Heel"], ["created_at", "2022-04-28 18:32:17.072609"], ["updated_at", "2022-04-28 18:32:17.072609"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.3ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 5], ["ankle_angle", 3], ["sva", "10-12"], ["brace", "SAFO"], ["footwear", "Rocker Sole"], ["created_at", "2022-04-28 18:32:17.078719"], ["updated_at", "2022-04-28 18:32:17.078719"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.3ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 1], ["ankle_angle", 8], ["sva", "15-19"], ["brace", "Articulated AFO"], ["footwear", "Negative Heel"], ["created_at", "2022-04-28 18:32:17.083712"], ["updated_at", "2022-04-28 18:32:17.083712"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/me" for 127.0.0.1 at 2022-04-28 14:33:10 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.37ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 19ms (Views: 2.5ms | ActiveRecord: 1.8ms | Allocations: 3683)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-04-28 14:33:21 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Troy", "password"=>"[FILTERED]", "session"=>{"username"=>"Troy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Troy"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 299ms (Views: 8.1ms | ActiveRecord: 3.5ms | Allocations: 6016)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-04-28 14:33:24 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 26ms (Views: 1.9ms | ActiveRecord: 4.6ms | Allocations: 930)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-04-28 14:33:29 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"3456", "patient"=>{"name"=>"3456"}}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (6.0ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["name", 3456], ["created_at", "2022-04-28 18:33:29.718105"], ["updated_at", "2022-04-28 18:33:29.718105"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (41.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 101ms (Views: 6.4ms | ActiveRecord: 74.3ms | Allocations: 7542)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-04-28 14:34:53 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"_json"=>"Full Gait Cycles", "device"=>{}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 5.1ms | Allocations: 2681)
+
+
+  
+NoMethodError (undefined method `devices' for #<User:0x00007fb2126b25d0>):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-04-28 14:35:32 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 816)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-04-28 14:36:10 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 804)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-04-28 14:36:15 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"67", "patient"=>{"name"=>"67"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.2ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["name", 67], ["created_at", "2022-04-28 18:36:15.657647"], ["updated_at", "2022-04-28 18:36:15.657647"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 25ms (Views: 1.6ms | ActiveRecord: 5.1ms | Allocations: 2835)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-04-28 14:36:17 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"_json"=>"Full Gait Cycles", "patient"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameters: :_json, :patient[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.4ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2022-04-28 18:36:17.204485"], ["updated_at", "2022-04-28 18:36:17.204485"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.76ms)
+Completed 200 OK in 47ms (Views: 5.0ms | ActiveRecord: 4.3ms | Allocations: 2804)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-04-28 14:38:47 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 805)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-04-28 14:38:54 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"223", "patient"=>{"name"=>"223"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (11.5ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["name", 223], ["created_at", "2022-04-28 18:38:54.468057"], ["updated_at", "2022-04-28 18:38:54.468057"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 40ms (Views: 0.6ms | ActiveRecord: 19.4ms | Allocations: 2823)
+
+
+Started POST "/patients.goals" for 127.0.0.1 at 2022-04-28 14:39:07 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"_json"=>"Full Gait Cycles", "patient"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameters: :_json, :format, :patient[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (2.6ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["user_id", 1], ["created_at", "2022-04-28 18:39:07.612311"], ["updated_at", "2022-04-28 18:39:07.612311"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 39ms (Views: 0.7ms | ActiveRecord: 7.1ms | Allocations: 2796)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-04-28 14:39:35 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 204 No Content in 3ms (ActiveRecord: 0.5ms | Allocations: 609)
+
+

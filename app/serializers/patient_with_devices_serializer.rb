@@ -1,5 +1,5 @@
 class PatientWithDevicesSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name, :goal
 
   has_many :devices
   

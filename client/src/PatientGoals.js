@@ -10,7 +10,7 @@ function PatientGoals () {
     function handleSubmit1(event){
         event.preventDefault()
         navigate('PatientRom')
-        fetch("/devices", {
+        fetch("/patients.goals", {
           method: "POST",
           headers:{
               "Content-Type": "application/json"
@@ -22,7 +22,7 @@ function PatientGoals () {
       function handleSubmit2(event){
         event.preventDefault()
         navigate('PatientRom')
-        fetch("/devices", {
+        fetch("/patients", {
           method: "POST",
           headers:{
               "Content-Type": "application/json"
@@ -34,7 +34,7 @@ function PatientGoals () {
       function handleSubmit3(event){
         event.preventDefault()
         navigate('PatientRom')
-        fetch("/devices", {
+        fetch("/patients", {
           method: "POST",
           headers:{
               "Content-Type": "application/json"

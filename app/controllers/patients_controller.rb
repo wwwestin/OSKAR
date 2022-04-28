@@ -21,7 +21,7 @@ class PatientsController < ApplicationController
     private
 
     def patient_params
-        params.permit(:name, :user_id)
+        params.permit(:name, :user_id, :goal)
     end
 
     def find_patient
