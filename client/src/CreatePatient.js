@@ -1,14 +1,12 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import PatientGoals from "./PatientGoals";
 
-function CreatePatient () {
+function CreatePatient ({handleAddPatient}) {
 
     const navigate = useNavigate();
 
-
     const [newPatient, setNewPatient] = useState([]);
-
+    
     function onChange(event) {
         setNewPatient({...newPatient, [event.target.name]: event.target.value})
     }
@@ -23,7 +21,9 @@ function CreatePatient () {
           },
           body: JSON.stringify(newPatient),
        })
-      }
+       .then((r) => r.json())
+       .then(handleAddPatient)
+    }
 
     return (
         <div>
@@ -39,6 +39,7 @@ function CreatePatient () {
                         />
                         <button className="submitButtonDisplay" type="submit" >Submit</button>
                     </form>
+                    
                 </div>
         </div>
     )
@@ -47,6 +48,8 @@ function CreatePatient () {
 export default CreatePatient;
 
 // Not Needed for Now:
+
+//<PatientGoals newPatient={newPatient}/>
 
 //const [patient, setPatient] = useState([]);
 

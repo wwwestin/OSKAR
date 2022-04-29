@@ -1,19 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {useNavigate} from "react-router-dom";
 
-function PatientGoals () {
+function PatientGoals ({currentPatient}) {
+
+    const newObj = Object.assign({}, ...currentPatient);
+    
+    const {id} = newObj;
 
     const navigate = useNavigate();
-
-    const [patient, setPatient] = useState([]);
-
-    useEffect(() => {
-        fetch("me/patients")
-        .then((r) => r.json())
-        .then(setPatient)
-      }, []); 
-
-      const {id} = patient;
 
     function handleSubmit1(event){
         event.preventDefault()
@@ -30,7 +24,7 @@ function PatientGoals () {
       function handleSubmit2(event){
         event.preventDefault()
         navigate('PatientRom')
-        fetch("/patients", {
+        fetch(`/patients/${currentPatient.id}`, {
           method: "PATCH",
           headers:{
               "Content-Type": "application/json"
@@ -42,7 +36,7 @@ function PatientGoals () {
       function handleSubmit3(event){
         event.preventDefault()
         navigate('PatientRom')
-        fetch("/patients", {
+        fetch(`/patients/${currentPatient.id}`, {
           method: "PATCH",
           headers:{
               "Content-Type": "application/json"
@@ -62,4 +56,5 @@ function PatientGoals () {
 }
 
 export default PatientGoals;
+
 

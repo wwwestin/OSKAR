@@ -13,6 +13,7 @@ import PatientRom from "./PatientRom";
 function App() {
 
   const [user, setUser] = useState(null)
+  const [currentPatient, setCurrentPatient] = useState([])
 
     useEffect(() => {
     fetch("/me").then((response) => {
@@ -29,7 +30,10 @@ function App() {
    function handleLogout() {
     setUser(null);
   }
-  
+
+  function handleAddPatient(newestPatient){
+    setCurrentPatient([...currentPatient, newestPatient])   
+  }
   
   return (
     <div className="App">
@@ -39,9 +43,9 @@ function App() {
           <Route exact path= "/CreateProfile" element={ <CreateProfile setUser = {setUser} user = {user} /> } />
           <Route exact path= "/EditProfile" element = { <EditProfile /> } />
           <Route exact path= "/SavedDevices" element = { <SavedDevices /> } />
-          <Route exact path= "/CreatePatient" element = { <CreatePatient /> } />
-          <Route exact path= "/PatientGoals" element = { <PatientGoals /> } />
-          <Route exact path= "/CreatePatient/PatientGoals" element = { <PatientGoals /> } />
+          <Route exact path= "/CreatePatient" element = { <CreatePatient handleAddPatient={handleAddPatient}/> } />
+          <Route exact path= "/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
+          <Route exact path= "/CreatePatient/PatientGoals" element = { <PatientGoals  currentPatient = {currentPatient} /> } />
           <Route exact path= "/PatientRom" element = { <PatientRom /> } />
         </Routes>
     </div>
