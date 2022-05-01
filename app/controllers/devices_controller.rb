@@ -10,7 +10,7 @@ class DevicesController < ApplicationController
     end
 
     def create
-        device = @current_user.devices.create!(device_params)
+        device = Device.create!(device_params)
         render json: device, status: 200
     end
 

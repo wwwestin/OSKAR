@@ -5913,3 +5913,2507 @@ Processing by SessionsController#destroy as */*
 Completed 204 No Content in 3ms (ActiveRecord: 0.4ms | Allocations: 616)
 
 
+Started GET "/me" for 127.0.0.1 at 2022-04-29 17:15:36 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 55ms (Views: 1.9ms | ActiveRecord: 31.3ms | Allocations: 3669)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-04-29 17:15:42 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.37ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 31ms (Views: 1.3ms | ActiveRecord: 1.8ms | Allocations: 887)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-04-29 17:15:43 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 13ms (Views: 0.4ms | ActiveRecord: 5.6ms | Allocations: 881)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-04-29 17:15:55 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Troy", "password"=>"[FILTERED]", "session"=>{"username"=>"Troy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Troy"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 325ms (Views: 8.6ms | ActiveRecord: 30.1ms | Allocations: 6000)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-04-29 17:15:57 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 14ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 937)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-04-29 17:16:04 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"954", "patient"=>{"name"=>"954"}}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.5ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["name", 954], ["created_at", "2022-04-29 21:16:04.142703"], ["updated_at", "2022-04-29 21:16:04.142703"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (41.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.57ms)
+Completed 200 OK in 80ms (Views: 2.5ms | ActiveRecord: 61.9ms | Allocations: 7501)
+
+
+Started PATCH "/patients/71" for 127.0.0.1 at 2022-04-29 17:16:06 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Full Gait Cycles", "id"=>"71", "patient"=>{"goal"=>"Full Gait Cycles"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 71], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (2.2ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-04-29 21:16:06.139657"], ["goal", "Full Gait Cycles"], ["id", 71]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 26ms (Views: 0.8ms | ActiveRecord: 7.6ms | Allocations: 3986)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:15:06 -0400
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 79ms (Views: 2.0ms | ActiveRecord: 23.7ms | Allocations: 3588)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:15:11 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 48ms (Views: 0.5ms | ActiveRecord: 2.2ms | Allocations: 808)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-01 13:15:25 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Bono", "password"=>"[FILTERED]", "session"=>{"username"=>"Bono", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (40.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bono"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 340ms (Views: 7.8ms | ActiveRecord: 49.6ms | Allocations: 5922)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:15:27 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 21ms (Views: 1.2ms | ActiveRecord: 2.5ms | Allocations: 947)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 13:15:32 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"4556", "patient"=>{"name"=>"4556"}}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (51.2ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["name", 4556], ["created_at", "2022-05-01 17:15:32.765455"], ["updated_at", "2022-05-01 17:15:32.765455"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 97ms (Views: 1.7ms | ActiveRecord: 72.6ms | Allocations: 7508)
+
+
+Started PATCH "/patients/undefined" for 127.0.0.1 at 2022-05-01 13:15:34 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"undefined", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+Completed 404 Not Found in 10ms (ActiveRecord: 0.6ms | Allocations: 1194)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Patient with 'id'=undefined):
+  
+app/controllers/patients_controller.rb:34:in `find_patient'
+app/controllers/patients_controller.rb:22:in `update'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:16:55 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 24ms (Views: 5.3ms | ActiveRecord: 0.7ms | Allocations: 804)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 13:17:02 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"911", "patient"=>{"name"=>"911"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.7ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["name", 911], ["created_at", "2022-05-01 17:17:02.851840"], ["updated_at", "2022-05-01 17:17:02.851840"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 28ms (Views: 0.7ms | ActiveRecord: 8.4ms | Allocations: 2832)
+
+
+Started PATCH "/patients/73" for 127.0.0.1 at 2022-05-01 13:17:05 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"73", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (3.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (2.3ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 17:17:05.311092"], ["goal", "Stepping"], ["id", 73]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 33ms (Views: 0.7ms | ActiveRecord: 9.3ms | Allocations: 3866)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:18:46 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 809)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:19:22 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 807)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:19:47 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 801)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:20:56 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 810)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:21:28 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 807)
+
+
+Started GET "/CreatePatient/PatientGoals/babel/parser/lib/index.js" for 127.0.0.1 at 2022-05-01 13:38:40 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/CreatePatient/PatientGoals/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:38:40 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 113ms (Views: 0.8ms | ActiveRecord: 95.1ms | Allocations: 4016)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 13:46:09 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 55.9ms | Allocations: 2739)
+
+
+  
+NoMethodError (undefined method `devices' for #<User:0x00007f7f78486c38>):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:47:14 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 42ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 810)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:47:17 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 23ms (Views: 0.9ms | ActiveRecord: 0.5ms | Allocations: 803)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 13:47:23 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"1345", "patient"=>{"name"=>"1345"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (2.2ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["name", 1345], ["created_at", "2022-05-01 17:47:23.675774"], ["updated_at", "2022-05-01 17:47:23.675774"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 23ms (Views: 0.7ms | ActiveRecord: 7.8ms | Allocations: 2821)
+
+
+Started PATCH "/patients/74" for 127.0.0.1 at 2022-05-01 13:47:26 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Standing", "id"=>"74", "patient"=>{"goal"=>"Standing"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.2ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 17:47:26.158198"], ["goal", "Standing"], ["id", 74]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (40.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 68ms (Views: 1.1ms | ActiveRecord: 49.3ms | Allocations: 3640)
+
+
+Started POST "/CreatePatient/PatientGoals/PatientRom/me/devices" for 127.0.0.1 at 2022-05-01 13:47:30 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/CreatePatient/PatientGoals/PatientRom/me/devices"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:47:46 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 18ms (Views: 1.2ms | ActiveRecord: 1.2ms | Allocations: 800)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:51:44 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 811)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:52:38 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 815)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 13:52:45 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"674", "patient"=>{"name"=>"674"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (2.2ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["name", 674], ["created_at", "2022-05-01 17:52:45.998073"], ["updated_at", "2022-05-01 17:52:45.998073"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 39ms (Views: 0.8ms | ActiveRecord: 9.6ms | Allocations: 2815)
+
+
+Started PATCH "/patients/75" for 127.0.0.1 at 2022-05-01 13:52:47 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Standing", "id"=>"75", "patient"=>{"goal"=>"Standing"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (7.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 75], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.3ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 17:52:47.144087"], ["goal", "Standing"], ["id", 75]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (16.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 102ms (Views: 0.8ms | ActiveRecord: 28.3ms | Allocations: 3636)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:53:22 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 1.3ms | Allocations: 811)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-05-01 13:53:25 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 204 No Content in 4ms (ActiveRecord: 1.2ms | Allocations: 621)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:53:29 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 871)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:53:32 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 32ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 864)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:53:36 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.6ms | ActiveRecord: 1.0ms | Allocations: 870)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 13:53:40 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"668", "patient"=>{"name"=>"668"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 0.5ms | ActiveRecord: 1.5ms | Allocations: 859)
+
+
+Started PATCH "/patients/undefined" for 127.0.0.1 at 2022-05-01 13:53:42 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Standing", "id"=>"undefined", "patient"=>{"goal"=>"Standing"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 53ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 855)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:54:45 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 868)
+
+
+Started POST "/CreatePatient/PatientGoals/PatientRom/patients/undefined/devices" for 127.0.0.1 at 2022-05-01 13:54:50 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/CreatePatient/PatientGoals/PatientRom/patients/undefined/devices"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:55:13 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 869)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 13:55:18 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"987", "patient"=>{"name"=>"987"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 865)
+
+
+Started PATCH "/patients/undefined" for 127.0.0.1 at 2022-05-01 13:55:20 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"undefined", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 859)
+
+
+Started POST "/CreatePatient/PatientGoals/PatientRom/patients/undefined/devices" for 127.0.0.1 at 2022-05-01 13:55:21 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/CreatePatient/PatientGoals/PatientRom/patients/undefined/devices"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 13:56:11 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 77ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 865)
+
+
+Started GET "/babel/parser/lib/index.js" for 127.0.0.1 at 2022-05-01 13:59:00 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:02:50 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 100ms (Views: 2.1ms | ActiveRecord: 15.5ms | Allocations: 5255)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:02:51 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 77ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 861)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-01 14:03:05 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Claire Manix", "password"=>"[FILTERED]", "session"=>{"username"=>"Claire Manix", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Claire Manix"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 288ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 2977)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:03:08 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.18ms)
+Completed 200 OK in 47ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 914)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:03:13 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"4454", "patient"=>{"name"=>"4454"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (2.1ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 4454], ["created_at", "2022-05-01 18:03:13.114776"], ["updated_at", "2022-05-01 18:03:13.114776"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (41.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 64ms (Views: 3.9ms | ActiveRecord: 45.5ms | Allocations: 5375)
+
+
+Started PATCH "/patients/76" for 127.0.0.1 at 2022-05-01 14:03:14 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"76", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (0.8ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:03:14.486421"], ["goal", "Stepping"], ["id", 76]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 19ms (Views: 0.8ms | ActiveRecord: 7.2ms | Allocations: 3938)
+
+
+Started POST "/CreatePatient/PatientGoals/PatientRom/patients/76/devices" for 127.0.0.1 at 2022-05-01 14:03:15 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/CreatePatient/PatientGoals/PatientRom/patients/76/devices"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:10:26 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 181ms (Views: 2.5ms | ActiveRecord: 12.8ms | Allocations: 7134)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:10:32 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"786", "patient"=>{"name"=>"786"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (2.5ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 786], ["created_at", "2022-05-01 18:10:32.915398"], ["updated_at", "2022-05-01 18:10:32.915398"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 19ms (Views: 1.6ms | ActiveRecord: 7.1ms | Allocations: 5389)
+
+
+Started PATCH "/patients/77" for 127.0.0.1 at 2022-05-01 14:10:33 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"77", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 77], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.1ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:10:33.644524"], ["goal", "Stepping"], ["id", 77]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 18ms (Views: 0.8ms | ActiveRecord: 3.7ms | Allocations: 3941)
+
+
+Started POST "/CreatePatient/PatientGoals/PatientRom/patients/devices" for 127.0.0.1 at 2022-05-01 14:10:35 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/CreatePatient/PatientGoals/PatientRom/patients/devices"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:11:13 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 812)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:11:20 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"557", "patient"=>{"name"=>"557"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.1ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 557], ["created_at", "2022-05-01 18:11:20.803477"], ["updated_at", "2022-05-01 18:11:20.803477"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 16ms (Views: 0.8ms | ActiveRecord: 7.7ms | Allocations: 2827)
+
+
+Started PATCH "/patients/78" for 127.0.0.1 at 2022-05-01 14:11:21 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"78", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (7.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 78], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (3.7ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:11:21.929412"], ["goal", "Stepping"], ["id", 78]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 29ms (Views: 0.7ms | ActiveRecord: 14.3ms | Allocations: 3624)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 14:11:26 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms | Allocations: 2643)
+
+
+  
+NoMethodError (undefined method `devices' for #<User:0x00007f7f781ee070>):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:12:51 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 79ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 811)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:13:01 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"92", "patient"=>{"name"=>"92"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.7ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 92], ["created_at", "2022-05-01 18:13:01.292372"], ["updated_at", "2022-05-01 18:13:01.292372"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (41.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 56ms (Views: 1.2ms | ActiveRecord: 44.9ms | Allocations: 2829)
+
+
+Started PATCH "/patients/79" for 127.0.0.1 at 2022-05-01 14:13:02 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Full Gait Cycles", "id"=>"79", "patient"=>{"goal"=>"Full Gait Cycles"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.1ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:13:02.553137"], ["goal", "Full Gait Cycles"], ["id", 79]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 21ms (Views: 0.9ms | ActiveRecord: 8.0ms | Allocations: 3632)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 14:13:03 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.9ms | Allocations: 2613)
+
+
+  
+NoMethodError (undefined method `devices' for #<User:0x00007f7f73da2100>):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:13:51 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 806)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:13:55 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"6777", "patient"=>{"name"=>"6777"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.8ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 6777], ["created_at", "2022-05-01 18:13:55.936337"], ["updated_at", "2022-05-01 18:13:55.936337"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 17ms (Views: 0.7ms | ActiveRecord: 7.5ms | Allocations: 2828)
+
+
+Started PATCH "/patients/80" for 127.0.0.1 at 2022-05-01 14:13:57 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"80", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (2.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 80], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.2ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:13:57.064557"], ["goal", "Stepping"], ["id", 80]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 22ms (Views: 0.9ms | ActiveRecord: 7.9ms | Allocations: 3630)
+
+
+Started POST "/me/patients/devices" for 127.0.0.1 at 2022-05-01 14:13:57 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/me/patients/devices"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:15:52 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 36ms (Views: 3.3ms | ActiveRecord: 13.6ms | Allocations: 4276)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:15:59 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"2222", "patient"=>{"name"=>"2222"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.3ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 2222], ["created_at", "2022-05-01 18:15:59.337114"], ["updated_at", "2022-05-01 18:15:59.337114"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.84ms)
+Completed 200 OK in 23ms (Views: 2.0ms | ActiveRecord: 10.7ms | Allocations: 5401)
+
+
+Started PATCH "/patients/81" for 127.0.0.1 at 2022-05-01 14:16:00 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"81", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 81], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (2.0ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:16:00.291623"], ["goal", "Stepping"], ["id", 81]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 20ms (Views: 0.8ms | ActiveRecord: 7.7ms | Allocations: 3919)
+
+
+Started POST "/me/patients/81/devices" for 127.0.0.1 at 2022-05-01 14:16:01 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "id"=>"81", "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 2.2ms | Allocations: 2641)
+
+
+  
+NoMethodError (undefined method `devices' for #<User:0x00007f7f78437368>):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:22:53 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 72ms (Views: 2.7ms | ActiveRecord: 38.0ms | Allocations: 7210)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:22:57 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"5554", "patient"=>{"name"=>"5554"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.2ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 5554], ["created_at", "2022-05-01 18:22:57.674678"], ["updated_at", "2022-05-01 18:22:57.674678"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 200 OK in 41ms (Views: 4.5ms | ActiveRecord: 5.0ms | Allocations: 5373)
+
+
+Started PATCH "/patients/82" for 127.0.0.1 at 2022-05-01 14:22:58 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Full Gait Cycles", "id"=>"82", "patient"=>{"goal"=>"Full Gait Cycles"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 82], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.6ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:22:58.443794"], ["goal", "Full Gait Cycles"], ["id", 82]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 46ms (Views: 0.9ms | ActiveRecord: 7.9ms | Allocations: 3944)
+
+
+Started POST "/me/patients/82/devices" for 127.0.0.1 at 2022-05-01 14:22:59 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "id"=>"82", "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["user_id", 3], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.8ms | Allocations: 4366)
+
+
+  [1m[36mCACHE Patient Load (0.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["user_id", 3], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `devices' for #<Patient::ActiveRecord_Associations_CollectionProxy:0x00007f7f792981a0>):
+  
+app/controllers/devices_controller.rb:13:in `create'
+  [1m[36mCACHE Patient Load (0.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."user_id" = $1 /* loading for inspect */ LIMIT $2[0m  [["user_id", 3], ["LIMIT", 11]]
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:23:34 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 165ms (Views: 2.3ms | ActiveRecord: 22.6ms | Allocations: 4279)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:23:38 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"4343", "patient"=>{"name"=>"4343"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (0.9ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 4343], ["created_at", "2022-05-01 18:23:38.627324"], ["updated_at", "2022-05-01 18:23:38.627324"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (2.4ms)
+Completed 200 OK in 38ms (Views: 4.8ms | ActiveRecord: 10.7ms | Allocations: 5406)
+
+
+Started PATCH "/patients/83" for 127.0.0.1 at 2022-05-01 14:23:39 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"83", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (4.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 83], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (4.9ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:23:39.725908"], ["goal", "Stepping"], ["id", 83]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 70ms (Views: 2.2ms | ActiveRecord: 12.3ms | Allocations: 3922)
+
+
+Started POST "/me/patients/83/devices" for 127.0.0.1 at 2022-05-01 14:23:40 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "id"=>"83", "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 3.8ms | Allocations: 2721)
+
+
+  
+NameError (undefined local variable or method `patients' for #<DevicesController:0x0000000000eab0>
+Did you mean?  patients_url):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:29:48 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 200 OK in 41ms (Views: 2.3ms | ActiveRecord: 12.4ms | Allocations: 7204)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:29:54 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"3222", "patient"=>{"name"=>"3222"}}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (2.2ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 3222], ["created_at", "2022-05-01 18:29:54.901471"], ["updated_at", "2022-05-01 18:29:54.901471"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 25ms (Views: 1.5ms | ActiveRecord: 11.7ms | Allocations: 5368)
+
+
+Started PATCH "/patients/84" for 127.0.0.1 at 2022-05-01 14:29:58 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Standing", "id"=>"84", "patient"=>{"goal"=>"Standing"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (1.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 84], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.6ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:29:58.582862"], ["goal", "Standing"], ["id", 84]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 23ms (Views: 0.9ms | ActiveRecord: 6.7ms | Allocations: 3932)
+
+
+Started POST "/me/patients/84/devices" for 127.0.0.1 at 2022-05-01 14:29:59 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "id"=>"84", "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.2ms | Allocations: 1155)
+
+
+  
+NoMethodError (undefined method `patients' for nil:NilClass):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:31:03 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 36ms (Views: 2.9ms | ActiveRecord: 19.0ms | Allocations: 4230)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:31:08 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"9990", "patient"=>{"name"=>"9990"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.5ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 9990], ["created_at", "2022-05-01 18:31:08.878924"], ["updated_at", "2022-05-01 18:31:08.878924"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 200 OK in 20ms (Views: 1.6ms | ActiveRecord: 8.7ms | Allocations: 5412)
+
+
+Started PATCH "/patients/85" for 127.0.0.1 at 2022-05-01 14:31:09 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"85", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (1.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 85], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (0.6ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:31:09.521552"], ["goal", "Stepping"], ["id", 85]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 21ms (Views: 0.8ms | ActiveRecord: 6.7ms | Allocations: 3918)
+
+
+Started POST "/me/patients/85/devices" for 127.0.0.1 at 2022-05-01 14:31:10 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/me/patients/85/devices"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:37:02 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.28ms)
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 0.6ms | Allocations: 812)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:37:06 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 48ms (Views: 0.8ms | ActiveRecord: 0.5ms | Allocations: 805)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:37:14 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"7778", "patient"=>{"name"=>"7778"}}
+  [1m[36mUser Load (22.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (5.9ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 7778], ["created_at", "2022-05-01 18:37:14.892940"], ["updated_at", "2022-05-01 18:37:14.892940"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (11.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 60ms (Views: 1.2ms | ActiveRecord: 42.7ms | Allocations: 2822)
+
+
+Started PATCH "/patients/86" for 127.0.0.1 at 2022-05-01 14:37:15 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"86", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (1.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 86], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (0.8ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:37:15.783143"], ["goal", "Stepping"], ["id", 86]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 40ms (Views: 0.8ms | ActiveRecord: 5.3ms | Allocations: 3622)
+
+
+Started POST "/me/patients/devices/86" for 127.0.0.1 at 2022-05-01 14:37:17 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/me/patients/devices/86"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:38:12 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 42ms (Views: 3.7ms | ActiveRecord: 10.9ms | Allocations: 4245)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:38:19 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"777", "patient"=>{"name"=>"777"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (0.8ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 777], ["created_at", "2022-05-01 18:38:19.861342"], ["updated_at", "2022-05-01 18:38:19.861342"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (41.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 63ms (Views: 2.6ms | ActiveRecord: 54.3ms | Allocations: 5407)
+
+
+Started PATCH "/patients/87" for 127.0.0.1 at 2022-05-01 14:38:20 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"87", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (4.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 87], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (0.9ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:38:20.975727"], ["goal", "Stepping"], ["id", 87]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 36ms (Views: 0.8ms | ActiveRecord: 17.7ms | Allocations: 3926)
+
+
+Started POST "/me/patients/devices/87" for 127.0.0.1 at 2022-05-01 14:38:22 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/me/patients/devices/87"):
+  
+Started GET "/CreatePatient/PatientGoals/PatientRom/babel/parser/lib/index.js" for 127.0.0.1 at 2022-05-01 14:39:19 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/CreatePatient/PatientGoals/PatientRom/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:39:30 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 803)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:39:38 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"9998", "patient"=>{"name"=>"9998"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (3.5ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 9998], ["created_at", "2022-05-01 18:39:38.939411"], ["updated_at", "2022-05-01 18:39:38.939411"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 44ms (Views: 0.9ms | ActiveRecord: 8.5ms | Allocations: 2819)
+
+
+Started PATCH "/patients/88" for 127.0.0.1 at 2022-05-01 14:39:40 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"88", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 88], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.3ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:39:40.313067"], ["goal", "Stepping"], ["id", 88]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (14.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 49ms (Views: 1.6ms | ActiveRecord: 19.6ms | Allocations: 3630)
+
+
+Started POST "/me/patients/devices/" for 127.0.0.1 at 2022-05-01 14:39:41 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/me/patients/devices"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:40:58 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 47ms (Views: 2.7ms | ActiveRecord: 25.1ms | Allocations: 4203)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:41:05 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"45", "patient"=>{"name"=>"45"}}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (0.7ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 45], ["created_at", "2022-05-01 18:41:05.502109"], ["updated_at", "2022-05-01 18:41:05.502109"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (1.37ms)
+Completed 200 OK in 28ms (Views: 4.6ms | ActiveRecord: 13.5ms | Allocations: 5398)
+
+
+Started PATCH "/patients/89" for 127.0.0.1 at 2022-05-01 14:41:06 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"89", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (2.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 89], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (0.7ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:41:06.792294"], ["goal", "Stepping"], ["id", 89]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 32ms (Views: 0.7ms | ActiveRecord: 11.5ms | Allocations: 3914)
+
+
+Started POST "/me/patients/devices/" for 127.0.0.1 at 2022-05-01 14:41:08 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/me/patients/devices"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:41:17 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 12ms (Views: 0.9ms | ActiveRecord: 0.6ms | Allocations: 808)
+
+
+Started GET "/CreatePatient/PatientGoals/PatientRom/babel/parser/lib/index.js" for 127.0.0.1 at 2022-05-01 14:43:08 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/CreatePatient/PatientGoals/PatientRom/babel/parser/lib/index.js"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:43:12 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.62ms)
+Completed 200 OK in 127ms (Views: 3.2ms | ActiveRecord: 33.2ms | Allocations: 4246)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:43:14 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 38ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 803)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:43:23 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"236", "patient"=>{"name"=>"236"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.1ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 236], ["created_at", "2022-05-01 18:43:23.852587"], ["updated_at", "2022-05-01 18:43:23.852587"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.66ms)
+Completed 200 OK in 25ms (Views: 1.9ms | ActiveRecord: 10.4ms | Allocations: 5408)
+
+
+Started PATCH "/patients/90" for 127.0.0.1 at 2022-05-01 14:43:25 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"90", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 90], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.0ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:43:25.193918"], ["goal", "Stepping"], ["id", 90]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 34ms (Views: 0.8ms | ActiveRecord: 10.8ms | Allocations: 3921)
+
+
+Started POST "/me/patients/devices/90" for 127.0.0.1 at 2022-05-01 14:43:26 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/me/patients/devices/90"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:44:55 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 200 OK in 45ms (Views: 2.9ms | ActiveRecord: 9.7ms | Allocations: 4201)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:45:04 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"414", "patient"=>{"name"=>"414"}}
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (0.9ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 414], ["created_at", "2022-05-01 18:45:05.047196"], ["updated_at", "2022-05-01 18:45:05.047196"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 31ms (Views: 1.7ms | ActiveRecord: 18.8ms | Allocations: 5402)
+
+
+Started PATCH "/patients/91" for 127.0.0.1 at 2022-05-01 14:45:05 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"91", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 91], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (21.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.7ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:45:06.005945"], ["goal", "Stepping"], ["id", 91]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 64ms (Views: 1.0ms | ActiveRecord: 26.4ms | Allocations: 3919)
+
+
+Started POST "/me/patients/devices/91" for 127.0.0.1 at 2022-05-01 14:45:07 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/me/patients/devices/91"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:45:46 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.73ms)
+Completed 200 OK in 31ms (Views: 5.7ms | ActiveRecord: 5.0ms | Allocations: 4224)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:45:52 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"980", "patient"=>{"name"=>"980"}}
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.8ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 980], ["created_at", "2022-05-01 18:45:52.771015"], ["updated_at", "2022-05-01 18:45:52.771015"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 31ms (Views: 3.5ms | ActiveRecord: 19.5ms | Allocations: 5403)
+
+
+Started PATCH "/patients/92" for 127.0.0.1 at 2022-05-01 14:45:53 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Full Gait Cycles", "id"=>"92", "patient"=>{"goal"=>"Full Gait Cycles"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (3.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (0.9ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:45:53.834714"], ["goal", "Full Gait Cycles"], ["id", 92]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 35ms (Views: 1.4ms | ActiveRecord: 7.3ms | Allocations: 3920)
+
+
+Started POST "/me/patients/devices/92" for 127.0.0.1 at 2022-05-01 14:45:54 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/me/patients/devices/92"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:45:59 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 20ms (Views: 1.1ms | ActiveRecord: 4.2ms | Allocations: 798)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:46:34 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 29ms (Views: 4.7ms | ActiveRecord: 8.3ms | Allocations: 4214)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:46:39 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"31", "patient"=>{"name"=>"31"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (2.5ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 31], ["created_at", "2022-05-01 18:46:39.053789"], ["updated_at", "2022-05-01 18:46:39.053789"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 29ms (Views: 2.2ms | ActiveRecord: 16.6ms | Allocations: 5403)
+
+
+Started PATCH "/patients/93" for 127.0.0.1 at 2022-05-01 14:46:40 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Full Gait Cycles", "id"=>"93", "patient"=>{"goal"=>"Full Gait Cycles"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (7.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (0.8ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:46:40.061352"], ["goal", "Full Gait Cycles"], ["id", 93]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 32ms (Views: 0.8ms | ActiveRecord: 14.3ms | Allocations: 3920)
+
+
+Started POST "/me/patients/devices/93" for 127.0.0.1 at 2022-05-01 14:46:41 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "id"=>"93", "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 3.4ms | Allocations: 1156)
+
+
+  
+NoMethodError (undefined method `patients' for nil:NilClass):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:51:06 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 32ms (Views: 1.7ms | ActiveRecord: 8.7ms | Allocations: 4250)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:51:11 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"71", "patient"=>{"name"=>"71"}}
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (0.8ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 71], ["created_at", "2022-05-01 18:51:11.701667"], ["updated_at", "2022-05-01 18:51:11.701667"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 32ms (Views: 1.8ms | ActiveRecord: 18.3ms | Allocations: 5403)
+
+
+Started PATCH "/patients/94" for 127.0.0.1 at 2022-05-01 14:51:12 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"94", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 94], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.0ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:51:12.717875"], ["goal", "Stepping"], ["id", 94]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 34ms (Views: 0.7ms | ActiveRecord: 4.6ms | Allocations: 3908)
+
+
+Started POST "/me/patients/devices/94" for 127.0.0.1 at 2022-05-01 14:51:13 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/me/patients/devices/94"):
+  
+Started GET "/me" for 127.0.0.1 at 2022-05-01 14:51:40 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 35ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 804)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 14:51:46 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"888", "patient"=>{"name"=>"888"}}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (4.5ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 888], ["created_at", "2022-05-01 18:51:46.216628"], ["updated_at", "2022-05-01 18:51:46.216628"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 31ms (Views: 0.7ms | ActiveRecord: 12.3ms | Allocations: 2817)
+
+
+Started PATCH "/patients/95" for 127.0.0.1 at 2022-05-01 14:51:47 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Full Gait Cycles", "id"=>"95", "patient"=>{"goal"=>"Full Gait Cycles"}}
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (1.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 95], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (0.7ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 18:51:47.093109"], ["goal", "Full Gait Cycles"], ["id", 95]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 30ms (Views: 2.2ms | ActiveRecord: 12.9ms | Allocations: 3621)
+
+
+Started POST "/patients/devices/95" for 127.0.0.1 at 2022-05-01 14:51:47 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "id"=>"95", "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 4.1ms | Allocations: 2712)
+
+
+  
+NameError (undefined local variable or method `patients' for #<DevicesController:0x0000000001b490>
+Did you mean?  patients_url):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:17:07 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.66ms)
+Completed 200 OK in 134ms (Views: 5.8ms | ActiveRecord: 94.8ms | Allocations: 7200)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 16:17:20 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"224", "patient"=>{"name"=>"224"}}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (3.9ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 224], ["created_at", "2022-05-01 20:17:20.406680"], ["updated_at", "2022-05-01 20:17:20.406680"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 32ms (Views: 2.0ms | ActiveRecord: 15.6ms | Allocations: 5385)
+
+
+Started PATCH "/patients/96" for 127.0.0.1 at 2022-05-01 16:17:21 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"96", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.3ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 20:17:21.494718"], ["goal", "Stepping"], ["id", 96]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (21.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 59ms (Views: 0.6ms | ActiveRecord: 24.2ms | Allocations: 3937)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 16:17:23 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (8.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :device[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 422 Unprocessable Entity in 38ms (Views: 0.6ms | ActiveRecord: 15.0ms | Allocations: 7635)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:18:25 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.99ms)
+Completed 200 OK in 43ms (Views: 5.0ms | ActiveRecord: 22.3ms | Allocations: 4229)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 16:18:32 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"1555", "patient"=>{"name"=>"1555"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (0.8ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 1555], ["created_at", "2022-05-01 20:18:32.640041"], ["updated_at", "2022-05-01 20:18:32.640041"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 25ms (Views: 1.5ms | ActiveRecord: 14.7ms | Allocations: 5401)
+
+
+Started PATCH "/patients/97" for 127.0.0.1 at 2022-05-01 16:18:33 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Full Gait Cycles", "id"=>"97", "patient"=>{"goal"=>"Full Gait Cycles"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (22.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 97], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.1ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 20:18:33.334201"], ["goal", "Full Gait Cycles"], ["id", 97]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 52ms (Views: 0.8ms | ActiveRecord: 29.1ms | Allocations: 3918)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 16:18:34 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 3.5ms | Allocations: 2712)
+
+
+  
+NameError (undefined local variable or method `patients' for #<DevicesController:0x0000000001e2a8>
+Did you mean?  patients_url):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:19:14 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.4ms)
+Completed 200 OK in 35ms (Views: 4.6ms | ActiveRecord: 5.2ms | Allocations: 4247)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:19:16 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 816)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 16:19:21 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"4466", "patient"=>{"name"=>"4466"}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.6ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 4466], ["created_at", "2022-05-01 20:19:21.310238"], ["updated_at", "2022-05-01 20:19:21.310238"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 25ms (Views: 1.8ms | ActiveRecord: 11.2ms | Allocations: 5406)
+
+
+Started PATCH "/patients/98" for 127.0.0.1 at 2022-05-01 16:19:21 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"98", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (6.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 98], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (3.4ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 20:19:21.964892"], ["goal", "Stepping"], ["id", 98]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 35ms (Views: 0.9ms | ActiveRecord: 15.8ms | Allocations: 3916)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 16:19:23 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 8.1ms | Allocations: 2714)
+
+
+  
+NameError (undefined local variable or method `patients' for #<DevicesController:0x0000000001f8b0>
+Did you mean?  patients_url):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:20:01 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 23ms (Views: 1.7ms | ActiveRecord: 5.0ms | Allocations: 4211)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 16:20:05 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"778", "patient"=>{"name"=>"778"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (0.8ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 778], ["created_at", "2022-05-01 20:20:05.732900"], ["updated_at", "2022-05-01 20:20:05.732900"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 24ms (Views: 1.5ms | ActiveRecord: 15.6ms | Allocations: 5423)
+
+
+Started PATCH "/patients/99" for 127.0.0.1 at 2022-05-01 16:20:07 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Standing", "id"=>"99", "patient"=>{"goal"=>"Standing"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (1.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 99], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.0ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 20:20:07.248867"], ["goal", "Standing"], ["id", 99]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 33ms (Views: 0.8ms | ActiveRecord: 4.6ms | Allocations: 3922)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 16:20:08 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :device[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 17ms (Views: 0.7ms | ActiveRecord: 11.5ms | Allocations: 4809)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:20:27 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (12.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 71ms (Views: 1.6ms | ActiveRecord: 44.7ms | Allocations: 4216)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:20:28 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 11ms (Views: 0.7ms | ActiveRecord: 5.9ms | Allocations: 819)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 16:20:36 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"5670", "patient"=>{"name"=>"5670"}}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.0ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 5670], ["created_at", "2022-05-01 20:20:36.508212"], ["updated_at", "2022-05-01 20:20:36.508212"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 30ms (Views: 1.6ms | ActiveRecord: 17.5ms | Allocations: 5403)
+
+
+Started PATCH "/patients/100" for 127.0.0.1 at 2022-05-01 16:20:37 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"100", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (2.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.8ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 20:20:37.360892"], ["goal", "Stepping"], ["id", 100]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 30ms (Views: 0.7ms | ActiveRecord: 9.7ms | Allocations: 3926)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 16:20:38 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 2.6ms | Allocations: 3716)
+
+
+  
+NoMethodError (undefined method `Device' for #<Class:0x00007f7f790a2828>):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:20:42 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 813)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:22:07 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 36ms (Views: 3.2ms | ActiveRecord: 12.0ms | Allocations: 4246)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 16:22:13 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"4332", "patient"=>{"name"=>"4332"}}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (0.8ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 4332], ["created_at", "2022-05-01 20:22:13.231833"], ["updated_at", "2022-05-01 20:22:13.231833"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 22ms (Views: 1.8ms | ActiveRecord: 17.0ms | Allocations: 5409)
+
+
+Started PATCH "/patients/101" for 127.0.0.1 at 2022-05-01 16:22:14 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Standing", "id"=>"101", "patient"=>{"goal"=>"Standing"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (6.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 101], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (0.7ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 20:22:14.099554"], ["goal", "Standing"], ["id", 101]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 32ms (Views: 0.7ms | ActiveRecord: 10.5ms | Allocations: 3918)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 16:22:14 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 7.0ms | Allocations: 1145)
+
+
+  
+NoMethodError (undefined method `devices' for nil:NilClass):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:22:20 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 802)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:24:46 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 70ms (Views: 3.2ms | ActiveRecord: 13.6ms | Allocations: 4225)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 16:24:52 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"589", "patient"=>{"name"=>"589"}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (0.7ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 589], ["created_at", "2022-05-01 20:24:52.148113"], ["updated_at", "2022-05-01 20:24:52.148113"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 27ms (Views: 1.6ms | ActiveRecord: 11.4ms | Allocations: 5410)
+
+
+Started PATCH "/patients/102" for 127.0.0.1 at 2022-05-01 16:24:52 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Full Gait Cycles", "id"=>"102", "patient"=>{"goal"=>"Full Gait Cycles"}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (7.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (10.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.4ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 20:24:52.830861"], ["goal", "Full Gait Cycles"], ["id", 102]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 200 OK in 41ms (Views: 1.4ms | ActiveRecord: 23.4ms | Allocations: 3930)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 16:24:53 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 2.6ms | Allocations: 3695)
+
+
+  
+NoMethodError (undefined method `patients' for #<Class:0x00007f7f791bb480>):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:25:16 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.69ms)
+Completed 200 OK in 51ms (Views: 2.1ms | ActiveRecord: 13.6ms | Allocations: 4228)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 16:25:22 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"11333", "patient"=>{"name"=>"11333"}}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (1.1ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 11333], ["created_at", "2022-05-01 20:25:22.588663"], ["updated_at", "2022-05-01 20:25:22.588663"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 27ms (Views: 1.5ms | ActiveRecord: 16.7ms | Allocations: 5406)
+
+
+Started PATCH "/patients/103" for 127.0.0.1 at 2022-05-01 16:25:23 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Standing", "id"=>"103", "patient"=>{"goal"=>"Standing"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (2.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.0ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 20:25:23.643520"], ["goal", "Standing"], ["id", 103]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 32ms (Views: 0.7ms | ActiveRecord: 8.3ms | Allocations: 3925)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 16:25:24 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 2.8ms | Allocations: 2718)
+
+
+  
+NameError (undefined local variable or method `patients' for #<DevicesController:0x00000000026a48>
+Did you mean?  patients_url):
+  
+app/controllers/devices_controller.rb:13:in `create'
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:43:30 -0400
+  [1m[35m (54.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 65ms (Views: 16.9ms | ActiveRecord: 4.2ms | Allocations: 8428)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 16:43:39 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"5999", "patient"=>{"name"=>"5999"}}
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (5.2ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 5999], ["created_at", "2022-05-01 20:43:39.657873"], ["updated_at", "2022-05-01 20:43:39.657873"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (21.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.85ms)
+Completed 200 OK in 88ms (Views: 11.5ms | ActiveRecord: 48.5ms | Allocations: 8475)
+
+
+Started PATCH "/patients/104" for 127.0.0.1 at 2022-05-01 16:43:41 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"104", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (3.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (12.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (6.4ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 20:43:41.066695"], ["goal", "Stepping"], ["id", 104]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 78ms (Views: 0.9ms | ActiveRecord: 31.1ms | Allocations: 4116)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 16:43:43 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :device[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 422 Unprocessable Entity in 28ms (Views: 1.6ms | ActiveRecord: 15.9ms | Allocations: 7167)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 16:56:29 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.52ms)
+Completed 200 OK in 46ms (Views: 10.2ms | ActiveRecord: 4.4ms | Allocations: 8436)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 16:56:34 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"3332", "patient"=>{"name"=>"3332"}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (54.9ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 3332], ["created_at", "2022-05-01 20:56:34.211160"], ["updated_at", "2022-05-01 20:56:34.211160"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (1.09ms)
+Completed 200 OK in 106ms (Views: 7.3ms | ActiveRecord: 67.0ms | Allocations: 8425)
+
+
+Started PATCH "/patients/105" for 127.0.0.1 at 2022-05-01 16:56:35 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"105", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.1ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 20:56:35.074339"], ["goal", "Stepping"], ["id", 105]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 35ms (Views: 1.0ms | ActiveRecord: 5.1ms | Allocations: 4111)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 16:56:36 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"ankle_angle"=>7, "device"=>{"ankle_angle"=>7}}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 11.4ms | Allocations: 1171)
+
+
+  
+NoMethodError (undefined method `devices' for nil:NilClass):
+  
+app/controllers/devices_controller.rb:13:in `create'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (43.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (51.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_development"[0m
+  [1m[35m (47.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "react_rails_api_project_template_test"[0m
+  [1m[35m (351.3ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_development" ENCODING = 'unicode'[0m
+  [1m[35m (130.3ms)[0m  [1m[35mCREATE DATABASE "react_rails_api_project_template_test" ENCODING = 'unicode'[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1087325618115650655)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220427132125)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (47.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220427132125"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePatients (20220427132151)
+  [1m[36mTRANSACTION (43.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "patients" ("id" bigserial primary key, "user_id" bigint NOT NULL, "name" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_623f05c630"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_patients_on_user_id" ON "patients" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220427132151"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDevices (20220427132202)
+  [1m[36mTRANSACTION (40.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "devices" ("id" bigserial primary key, "patient_id" bigint NOT NULL, "ankle_angle" integer, "sva" character varying, "brace" character varying, "footwear" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_cc84773d6d"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_devices_on_patient_id" ON "devices" ("patient_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (2.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220427132202"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddGoalToPatients (20220428182751)
+  [1m[36mTRANSACTION (40.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "patients" ADD "goal" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220428182751"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-01 21:06:27.229198"], ["updated_at", "2022-05-01 21:06:27.229198"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(1087325618115650655)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Troy"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Troy"], ["password_digest", "$2a$12$WuEArd3mcANBl/gAwNqNyOXwPtQNvk7QXs3LlEXPG127cEC8ToX7e"], ["created_at", "2022-05-01 21:06:27.622691"], ["updated_at", "2022-05-01 21:06:27.622691"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Bono"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Bono"], ["password_digest", "$2a$12$KKSH/8.tx39ZWpA52sdoO.N5rkiUBOrYqDwdfIkRONRCRQDgvO0xC"], ["created_at", "2022-05-01 21:06:27.889899"], ["updated_at", "2022-05-01 21:06:27.889899"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Claire Manix"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "Claire Manix"], ["password_digest", "$2a$12$mQHUMbgSUWOzKqrJH.ijpelHIzEl0m1rUcmgrC3sZ85nm3JHHwp16"], ["created_at", "2022-05-01 21:06:28.248387"], ["updated_at", "2022-05-01 21:06:28.248387"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Create (1.2ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["name", 123], ["created_at", "2022-05-01 21:06:28.274465"], ["updated_at", "2022-05-01 21:06:28.274465"], ["goal", "Stepping"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.7ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["name", 456], ["created_at", "2022-05-01 21:06:28.281885"], ["updated_at", "2022-05-01 21:06:28.281885"], ["goal", "Full Gait Cycles"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.4ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["name", 650], ["created_at", "2022-05-01 21:06:28.289697"], ["updated_at", "2022-05-01 21:06:28.289697"], ["goal", "Stepping"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.4ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["name", 12], ["created_at", "2022-05-01 21:06:28.296282"], ["updated_at", "2022-05-01 21:06:28.296282"], ["goal", "Full Gait Cycles"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.3ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["name", 35], ["created_at", "2022-05-01 21:06:28.302546"], ["updated_at", "2022-05-01 21:06:28.302546"], ["goal", "Standing"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.4ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["name", 55], ["created_at", "2022-05-01 21:06:28.310250"], ["updated_at", "2022-05-01 21:06:28.310250"], ["goal", "Stepping"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.3ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["name", 50], ["created_at", "2022-05-01 21:06:28.316880"], ["updated_at", "2022-05-01 21:06:28.316880"], ["goal", "Full Gait Cycles"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.4ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["name", 90], ["created_at", "2022-05-01 21:06:28.323852"], ["updated_at", "2022-05-01 21:06:28.323852"], ["goal", "Full Gait Cycles"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.3ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["name", 42], ["created_at", "2022-05-01 21:06:28.330011"], ["updated_at", "2022-05-01 21:06:28.330011"], ["goal", "Full Gait Cycles"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPatient Create (0.3ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at", "goal") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["name", 999], ["created_at", "2022-05-01 21:06:28.335817"], ["updated_at", "2022-05-01 21:06:28.335817"], ["goal", "Full Gait Cycles"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDevice Create (1.2ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 3], ["ankle_angle", 5], ["sva", "10-12"], ["brace", "SAFO"], ["footwear", "Rocker Sole"], ["created_at", "2022-05-01 21:06:28.360978"], ["updated_at", "2022-05-01 21:06:28.360978"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.4ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 4], ["ankle_angle", 3], ["sva", "14-15"], ["brace", "SAFO with Free MPTJ"], ["footwear", "Flat/Rounded Sole"], ["created_at", "2022-05-01 21:06:28.369072"], ["updated_at", "2022-05-01 21:06:28.369072"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.4ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 7], ["ankle_angle", 10], ["sva", "10-12"], ["brace", "SAFO"], ["footwear", "Flat/Rounded Sole"], ["created_at", "2022-05-01 21:06:28.376946"], ["updated_at", "2022-05-01 21:06:28.376946"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.4ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 8], ["ankle_angle", 12], ["sva", "15-19"], ["brace", "SAFO with Free MPTJ"], ["footwear", "Point Loading Rocker"], ["created_at", "2022-05-01 21:06:28.383809"], ["updated_at", "2022-05-01 21:06:28.383809"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.4ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 10], ["ankle_angle", 15], ["sva", "14-15"], ["brace", "SAFO with Free MPTJ"], ["footwear", "Negative Heel"], ["created_at", "2022-05-01 21:06:28.390331"], ["updated_at", "2022-05-01 21:06:28.390331"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.4ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 2], ["ankle_angle", 3], ["sva", "14-15"], ["brace", "SAFO with Fixed MPTJ"], ["footwear", "Negative Heel"], ["created_at", "2022-05-01 21:06:28.396198"], ["updated_at", "2022-05-01 21:06:28.396198"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.5ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 1], ["ankle_angle", 10], ["sva", "10-12"], ["brace", "SAFO"], ["footwear", "Rocker Sole"], ["created_at", "2022-05-01 21:06:28.401914"], ["updated_at", "2022-05-01 21:06:28.401914"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.5ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 6], ["ankle_angle", 5], ["sva", "14-15"], ["brace", "SAFO"], ["footwear", "Plain Heel"], ["created_at", "2022-05-01 21:06:28.407921"], ["updated_at", "2022-05-01 21:06:28.407921"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.4ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 5], ["ankle_angle", 3], ["sva", "10-12"], ["brace", "SAFO"], ["footwear", "Rocker Sole"], ["created_at", "2022-05-01 21:06:28.413945"], ["updated_at", "2022-05-01 21:06:28.413945"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDevice Create (0.3ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "sva", "brace", "footwear", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["patient_id", 1], ["ankle_angle", 8], ["sva", "15-19"], ["brace", "Articulated AFO"], ["footwear", "Negative Heel"], ["created_at", "2022-05-01 21:06:28.419975"], ["updated_at", "2022-05-01 21:06:28.419975"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/me" for 127.0.0.1 at 2022-05-01 17:08:07 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 42ms (Views: 14.3ms | ActiveRecord: 5.3ms | Allocations: 8424)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-05-01 17:08:12 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 204 No Content in 3ms (ActiveRecord: 0.3ms | Allocations: 655)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 17:08:13 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (14.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 184ms (Views: 2.8ms | ActiveRecord: 14.3ms | Allocations: 1184)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-01 17:08:22 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Troy", "password"=>"[FILTERED]", "session"=>{"username"=>"Troy", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Troy"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 267ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 958)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 17:08:23 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 12ms (Views: 0.9ms | ActiveRecord: 6.1ms | Allocations: 820)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 17:08:28 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"4567", "patient"=>{"name"=>"4567"}}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (9.3ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["name", 4567], ["created_at", "2022-05-01 21:08:28.583866"], ["updated_at", "2022-05-01 21:08:28.583866"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.71ms)
+Completed 200 OK in 56ms (Views: 3.2ms | ActiveRecord: 40.6ms | Allocations: 8395)
+
+
+Started PATCH "/patients/11" for 127.0.0.1 at 2022-05-01 17:08:29 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Stepping", "id"=>"11", "patient"=>{"goal"=>"Stepping"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (1.3ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 21:08:29.500316"], ["goal", "Stepping"], ["id", 11]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 22ms (Views: 1.8ms | ActiveRecord: 4.9ms | Allocations: 4095)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 17:08:30 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"patient_id"=>"11", "ankle_angle"=>7, "device"=>{"patient_id"=>"11", "ankle_angle"=>7}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :device[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/devices_controller.rb:13:in `create'
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/devices_controller.rb:13:in `create'
+  [1m[36mDevice Create (1.4ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["patient_id", 11], ["ankle_angle", 7], ["created_at", "2022-05-01 21:08:31.020301"], ["updated_at", "2022-05-01 21:08:31.020301"]]
+  ↳ app/controllers/devices_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/devices_controller.rb:13:in `create'
+[active_model_serializers] Rendered DeviceSerializer with ActiveModelSerializers::Adapter::Attributes (0.59ms)
+Completed 200 OK in 31ms (Views: 3.3ms | ActiveRecord: 7.5ms | Allocations: 7081)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-05-01 19:38:06 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+Completed 204 No Content in 19ms (ActiveRecord: 7.3ms | Allocations: 3793)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 19:38:08 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 45ms (Views: 1.6ms | ActiveRecord: 1.0ms | Allocations: 874)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-05-01 19:38:14 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"username"=>"Claire Manix", "password"=>"[FILTERED]", "session"=>{"username"=>"Claire Manix", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Claire Manix"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:5:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.24ms)
+Completed 200 OK in 254ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 831)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-05-01 19:38:18 -0400
+Processing by UsersController#show as */*
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 3.5ms | Allocations: 805)
+
+
+Started POST "/patients" for 127.0.0.1 at 2022-05-01 19:38:22 -0400
+Processing by PatientsController#create as */*
+  Parameters: {"name"=>"6723", "patient"=>{"name"=>"6723"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :patient[0m
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mPatient Create (5.4ms)[0m  [1m[32mINSERT INTO "patients" ("user_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["name", 6723], ["created_at", "2022-05-01 23:38:22.961908"], ["updated_at", "2022-05-01 23:38:22.961908"]]
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:17:in `create'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 26ms (Views: 1.0ms | ActiveRecord: 17.3ms | Allocations: 2919)
+
+
+Started PATCH "/patients/12" for 127.0.0.1 at 2022-05-01 19:38:24 -0400
+Processing by PatientsController#update as */*
+  Parameters: {"goal"=>"Full Gait Cycles", "id"=>"12", "patient"=>{"goal"=>"Full Gait Cycles"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+  [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:34:in `find_patient'
+[31mUnpermitted parameters: :id, :patient[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mPatient Update (4.5ms)[0m  [1m[33mUPDATE "patients" SET "updated_at" = $1, "goal" = $2 WHERE "patients"."id" = $3[0m  [["updated_at", "2022-05-01 23:38:24.934310"], ["goal", "Full Gait Cycles"], ["id", 12]]
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/patients_controller.rb:23:in `update'
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 23ms (Views: 0.7ms | ActiveRecord: 10.8ms | Allocations: 3749)
+
+
+Started POST "/devices" for 127.0.0.1 at 2022-05-01 19:38:26 -0400
+Processing by DevicesController#create as */*
+  Parameters: {"patient_id"=>"12", "ankle_angle"=>7, "device"=>{"patient_id"=>"12", "ankle_angle"=>7}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `authorize'
+[31mUnpermitted parameter: :device[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/devices_controller.rb:13:in `create'
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/devices_controller.rb:13:in `create'
+  [1m[36mDevice Create (0.9ms)[0m  [1m[32mINSERT INTO "devices" ("patient_id", "ankle_angle", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["patient_id", 12], ["ankle_angle", 7], ["created_at", "2022-05-01 23:38:26.629152"], ["updated_at", "2022-05-01 23:38:26.629152"]]
+  ↳ app/controllers/devices_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/devices_controller.rb:13:in `create'
+[active_model_serializers] Rendered DeviceSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 13ms (Views: 1.0ms | ActiveRecord: 4.5ms | Allocations: 3429)
+
+

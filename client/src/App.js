@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Route, Routes } from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Login from "./Login";
 import CreateProfile from "./CreateProfile";
 import Header from "./Header";
@@ -8,12 +8,14 @@ import SavedDevices from "./SavedDevices";
 import CreatePatient from "./CreatePatient";
 import PatientGoals from "./PatientGoals";
 import PatientRom from "./PatientRom";
+import PatientMmt from "./PatientMmt";
 
 
 function App() {
 
-  const [user, setUser] = useState(null)
-  const [currentPatient, setCurrentPatient] = useState([])
+  const [user, setUser] = useState(null);
+  const [currentPatient, setCurrentPatient] = useState([]);
+  const [currentDevice, setCurrentDevice] = useState([]);
 
     useEffect(() => {
     fetch("/me").then((response) => {
@@ -34,6 +36,10 @@ function App() {
   function handleAddPatient(newestPatient){
     setCurrentPatient([...currentPatient, newestPatient])   
   }
+
+  function handleAddDevice(newestDevice){
+    setCurrentDevice([...currentDevice, newestDevice])
+  }
   
   return (
     <div className="App">
@@ -45,8 +51,11 @@ function App() {
           <Route exact path= "/SavedDevices" element = { <SavedDevices /> } />
           <Route exact path= "/CreatePatient" element = { <CreatePatient handleAddPatient={handleAddPatient}/> } />
           <Route exact path= "/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
-          <Route exact path= "/CreatePatient/PatientGoals" element = { <PatientGoals  currentPatient = {currentPatient} /> } />
-          <Route exact path= "/PatientRom" element = { <PatientRom /> } />
+          <Route exact path= "/CreatePatient/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
+          <Route exact path= "/PatientRom" element = { <PatientRom handleAddDevice={handleAddDevice} currentPatient = {currentPatient} /> } />
+          <Route exact path= "/CreatePatient/PatientGoals/PatientRom" element = { <PatientRom currentPatient = {currentPatient}/> } />
+          <Route exact path= "/PatientMmt" element = { <PatientMmt currentDevice = {currentDevice} /> } />
+          <Route exact path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt" element = { <PatientMmt currentDevice = {currentDevice} /> } />
         </Routes>
     </div>
   );

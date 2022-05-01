@@ -24,7 +24,7 @@ function PatientGoals ({currentPatient}) {
       function handleSubmit2(event){
         event.preventDefault()
         navigate('PatientRom')
-        fetch(`/patients/${currentPatient.id}`, {
+        fetch(`/patients/${id}`, {
           method: "PATCH",
           headers:{
               "Content-Type": "application/json"
@@ -36,7 +36,7 @@ function PatientGoals ({currentPatient}) {
       function handleSubmit3(event){
         event.preventDefault()
         navigate('PatientRom')
-        fetch(`/patients/${currentPatient.id}`, {
+        fetch(`/patients/${id}`, {
           method: "PATCH",
           headers:{
               "Content-Type": "application/json"
