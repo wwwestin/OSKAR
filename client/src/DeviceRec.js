@@ -4,23 +4,18 @@ function DeviceRec ({currentDevice}) {
 
     const [showCurrentDevice, setShowCurrentDevice] = useState([]);
 
-    useEffect(() => {
-        fetch(`/devices/${id}`)
-          .then((r) => r.json())
-          .then(data => setShowCurrentDevice(data));
-      }, []);
-
-      console.log(showCurrentDevice)
+    const {ankle_angle, sva, brace, footwear} = showCurrentDevice;
+    //, patient:{name, goal, mmt}
 
     const newDevObj = Object.assign({}, ...currentDevice);
 
     const {id} = newDevObj
-
     
-
-      const {ankle_angle, sva, brace, footwear} = showCurrentDevice;
-      //, patient:{name, goal, mmt}
-
+    useEffect(() => {
+        fetch(`/devices/${id}`)
+          .then((r) => r.json())
+          .then(data => setShowCurrentDevice(data));
+      }, );
     
     return (
         <div className= "deviceRec">
