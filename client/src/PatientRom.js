@@ -31,7 +31,7 @@ function PatientRom ({handleAddDevice, currentPatient}) {
           headers:{
               "Content-Type": "application/json"
           },
-          body: JSON.stringify({ankle_angle: 12}),
+          body: JSON.stringify({patient_id: `${id}`, ankle_angle: 12}),
        })
        .then((r) => r.json())
        .then(handleAddDevice)
@@ -45,7 +45,7 @@ function PatientRom ({handleAddDevice, currentPatient}) {
           headers:{
               "Content-Type": "application/json"
           },
-          body: JSON.stringify({ankle_angle: 3}),
+          body: JSON.stringify({patient_id: `${id}`, ankle_angle: 3}),
        })
        .then((r) => r.json())
        .then(handleAddDevice)

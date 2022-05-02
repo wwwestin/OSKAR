@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create]
   resources :patients, only: [:index, :show, :create, :update]
-  resources :devices, only: [:index, :show, :create]
+  resources :devices, only: [:index, :show, :create, :update]
 
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/me/patients/devices", to: "patients#devs"
   patch "/me/patients/:id", to: "patients#update"
   post "me/patients/devices/", to: "devices#create"
+  patch "/me/patients/devices/:id", to: "devices#update"
   
 
   

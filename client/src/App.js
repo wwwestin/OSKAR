@@ -9,6 +9,8 @@ import CreatePatient from "./CreatePatient";
 import PatientGoals from "./PatientGoals";
 import PatientRom from "./PatientRom";
 import PatientMmt from "./PatientMmt";
+import PatientGait from "./PatientGait";
+import DeviceRec from "./DeviceRec";
 
 
 function App() {
@@ -53,9 +55,13 @@ function App() {
           <Route exact path= "/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
           <Route exact path= "/CreatePatient/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
           <Route exact path= "/PatientRom" element = { <PatientRom handleAddDevice={handleAddDevice} currentPatient = {currentPatient} /> } />
-          <Route exact path= "/CreatePatient/PatientGoals/PatientRom" element = { <PatientRom currentPatient = {currentPatient}/> } />
-          <Route exact path= "/PatientMmt" element = { <PatientMmt currentDevice = {currentDevice} /> } />
-          <Route exact path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt" element = { <PatientMmt currentDevice = {currentDevice} /> } />
+          <Route exact path= "/CreatePatient/PatientGoals/PatientRom" element = { <PatientRom handleAddDevice={handleAddDevice} currentPatient = {currentPatient}/> } />
+          <Route exact path= "/PatientMmt" element = { <PatientMmt currentPatient = {currentPatient} /> } />
+          <Route exact path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt" element = { <PatientMmt currentPatient = {currentPatient} /> } />
+          <Route exact path= "/PatientGait" element = { <PatientGait currentDevice = {currentDevice} /> } />
+          <Route exact path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt/PatientGait" element = { <PatientGait currentDevice = {currentDevice} /> } />
+          <Route exact path= "/DeviceRec" element = { <DeviceRec currentPatient = {currentPatient} currentDevice = {currentDevice} /> } />
+          <Route exact path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt/PatientGait/DeviceRec" element = { <DeviceRec currentPatient = {currentPatient} currentDevice = {currentDevice} /> } />
         </Routes>
     </div>
   );

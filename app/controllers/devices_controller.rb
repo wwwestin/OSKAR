@@ -14,6 +14,12 @@ class DevicesController < ApplicationController
         render json: device, status: 200
     end
 
+    def update
+        device = find_device
+        device.update(device_params)
+        render json: device
+    end
+
     private
 
     def device_params
