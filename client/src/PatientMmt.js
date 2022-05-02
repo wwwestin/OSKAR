@@ -47,7 +47,7 @@ function PatientMmt ({currentPatient}) {
 
     return (
         <div className = "patientMMT">
-           <h3>Select Patient ROM Combination</h3>
+           <h5>Select Patient MMT Combination</h5>
                 <button className = "presentationButton" onClick = {handleSubmit1} type= "submit">Knee Flexion= 3/5, Knee Extension = 3/5, Dorsiflexion = 1/5, Plantarflexion = 2/5</button>
                 <button className = "presentationButton" onClick = {handleSubmit2} type= "submit">Knee Flexion= 2/5, Knee Extension = 4/5, Dorsiflexion = 1/5, Plantarflexion = 1/5</button>
                 <button className = "presentationButton" onClick = {handleSubmit3} type= "submit">Knee Flexion= 2/5, Knee Extension = 1/5, Dorsiflexion = 0/5, Plantarflexion = 1/5</button>

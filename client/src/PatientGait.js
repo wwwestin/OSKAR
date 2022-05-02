@@ -48,9 +48,10 @@ function PatientGait ({currentDevice}) {
     
     return (
         <div className="patientGait">
-            <button className = "presentationButton" onClick = {handleSubmit1} type= "submit">Insufficient Shank Incline WITHOUT Shank Reversal, Shank Kinematics in Stance Phase Not Typical, Not Able to Control Shank Kinematics in Terminal Stance Once Ankle is Fixed, Angular Velocity of Shank During Entry to Midstance Needs to be Increased, Exit from Midstance is Optimal</button>
-            <button className = "presentationButton" onClick = {handleSubmit2} type= "submit">Excessive Shank Incline with NO Hip and Knee Stiffness, Shank Kinematics in Stance Phase Not Typical, Able to Control Shank Kinematics in Terminal Stance Once Ankle is Fixed, Angular Velocity of Shank During Entry to Midstance Needs to be Reduced, Stiff Sole with Optimized Position Point Loading Rocker Produces Optimal Exit from Midstance</button>
-            <button className = "presentationButton" onClick = {handleSubmit3} type= "submit">Insufficient Shank Incline WITH Shank Reversal, Shank Kinematics in Stance Phase Not Typical, Not Able to Control Shank Kinematics in Terminal Stance Once Ankle is Fixed, Angular Velocity of Shank During Entry to Midstance is Optimal, Stiff Sole with Optimized Position Rocker Sole Produces Optimal Exit from Midstance</button>
+            <h6>Select a Patient Gait Deviation Combination</h6>
+                <button className = "presentationButton" onClick = {handleSubmit1} type= "submit">Insufficient Shank Incline WITHOUT Shank Reversal, Shank Kinematics in Stance Phase Not Typical, Not Able to Control Shank Kinematics in Terminal Stance Once Ankle is Fixed, Angular Velocity of Shank During Entry to Midstance Needs to be Increased, Exit from Midstance is Optimal</button>
+                <button className = "presentationButton" onClick = {handleSubmit2} type= "submit">Excessive Shank Incline with NO Hip and Knee Stiffness, Shank Kinematics in Stance Phase Not Typical, Able to Control Shank Kinematics in Terminal Stance Once Ankle is Fixed, Angular Velocity of Shank During Entry to Midstance Needs to be Reduced, Stiff Sole with Optimized Position Point Loading Rocker Produces Optimal Exit from Midstance</button>
+                <button className = "presentationButton" onClick = {handleSubmit3} type= "submit">Insufficient Shank Incline WITH Shank Reversal, Shank Kinematics in Stance Phase Not Typical, Not Able to Control Shank Kinematics in Terminal Stance Once Ankle is Fixed, Angular Velocity of Shank During Entry to Midstance is Optimal, Stiff Sole with Optimized Position Rocker Sole Produces Optimal Exit from Midstance</button>
         </div>
     )
 }

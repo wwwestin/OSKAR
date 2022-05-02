@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/me/patients", to: "users#pats"
-  get "/me/patients/devices", to: "patients#devs"
+  get "/me/patients/devices/", to: "patients#devs"
   patch "/me/patients/:id", to: "patients#update"
   post "me/patients/devices/", to: "devices#create"
   patch "/me/patients/devices/:id", to: "devices#update"
