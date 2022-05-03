@@ -49,7 +49,7 @@ function App() {
         <Routes>
           <Route exact path= "/" element={ <Login user={user} onLogin={handleLogin}/> } />
           <Route exact path= "/CreateProfile" element={ <CreateProfile setUser = {setUser} user = {user} /> } />
-          <Route exact path= "/EditProfile" element = { <EditProfile /> } />
+          <Route exact path= "/EditProfile" element = { <EditProfile setUser = {setUser} user = {user}/> } />
           <Route exact path= "/SavedDevices" element = { <SavedDevices /> } />
           <Route exact path= "/CreatePatient" element = { <CreatePatient handleAddPatient={handleAddPatient}/> } />
           <Route exact path= "/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />

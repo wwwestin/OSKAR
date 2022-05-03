@@ -9,6 +9,8 @@ function CreateProfile ({setUser}) {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
+    console.log(error)
+    
     function handleSubmit(e){
         e.preventDefault();
         setError([]);
