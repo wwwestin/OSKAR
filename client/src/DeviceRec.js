@@ -1,15 +1,17 @@
 import React, {useState, useEffect} from "react";
 
-function DeviceRec ({currentDevice}) {
+function DeviceRec ({currentPatient, currentDevice}) {
 
-    const [showCurrentDevice, setShowCurrentDevice] = useState([]);
+    const [showCurrentDevice, setShowCurrentDevice] = useState({});
 
     const {ankle_angle, sva, brace, footwear} = showCurrentDevice;
-    //, patient:{name, goal, mmt}
+    //,patient:{name, goal, mmt}
 
+    const newPatObj = Object.assign({}, ...currentPatient);
     const newDevObj = Object.assign({}, ...currentDevice);
 
-    const {id} = newDevObj
+    const {name} = newPatObj;
+    const {id} = newDevObj;
     
     useEffect(() => {
         fetch(`/devices/${id}`)
@@ -21,9 +23,7 @@ function DeviceRec ({currentDevice}) {
         <div className= "deviceRec">
             <h7><b>Patient:</b></h7>
                 <ul>
-                    <p><b>Name:</b> {}</p>
-                    <p><b>Goal:</b> {}</p>
-                    <p><b>MMT:</b> {}</p>
+                    <p><b>Name:</b> {name}</p>
                 </ul>
             <h8><b>Brace Configuration Recommendation:</b></h8>
                 <ul>
