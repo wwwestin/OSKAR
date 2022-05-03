@@ -28,18 +28,17 @@ function SavedDevices () {
     // array of patient IDS
     // iterate through the arr to access outer object
     // if innerObject's id is in the id array, then return the outer object
-    for (let device of deviceDetails){
-        if (device.patient.id in patIds){
-            console.log(device)
-        }
-    }
-      
-    //   const patsToDisplay = deviceDetails.patient.map((p) => patIds ===p.id)
-    //   console.log(patsToDisplay)
+    // let idArr = []
+    // for (let device of deviceDetails){
+    //     if (device.patient.id in patIds){
+    //         console.log(device.patient)
+    //     }
+        
+    // }
+      const patArray = deviceDetails.filter(g => patIds.some(f => g.patient.id === f))
 
-
-      
-    return (
+      console.log(patArray)
+      return (
         <div>
 
         </div>
