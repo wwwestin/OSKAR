@@ -11,7 +11,7 @@ function DeviceRec ({currentPatient, currentDevice}) {
 
     const {name} = newPatObj;
     const {id} = newDevObj;
-    
+     
     useEffect(() => {
         fetch(`/devices/${id}`)
           .then((r) => r.json())
