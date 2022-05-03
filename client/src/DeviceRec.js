@@ -5,8 +5,7 @@ function DeviceRec ({currentPatient, currentDevice}) {
     const [showCurrentDevice, setShowCurrentDevice] = useState({});
 
     const {ankle_angle, sva, brace, footwear} = showCurrentDevice;
-    //,patient:{name, goal, mmt}
-
+    
     const newPatObj = Object.assign({}, ...currentPatient);
     const newDevObj = Object.assign({}, ...currentDevice);
 
@@ -17,7 +16,7 @@ function DeviceRec ({currentPatient, currentDevice}) {
         fetch(`/devices/${id}`)
           .then((r) => r.json())
           .then(data => setShowCurrentDevice(data));
-      }, );
+      }, {});
     
     return (
         <div className= "deviceRec">

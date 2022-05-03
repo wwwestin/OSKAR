@@ -9,10 +9,6 @@ class PatientsController < ApplicationController
         render json: patient, status: 200
     end
 
-    def devs
-        render json: @current_user, serializer: PatientWithDevicesSerializer, status: 200
-    end
-
     def create
         patient = @current_user.patients.create!(patient_params)
         render json: patient, status: 200
