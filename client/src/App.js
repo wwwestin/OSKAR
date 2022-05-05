@@ -47,21 +47,21 @@ function App() {
     <div className="App">
        <Header user={user} onLogout={handleLogout}/>
         <Routes>
-          <Route exact path= "/" element={ <Login user={user} onLogin={handleLogin}/> } />
-          <Route exact path= "/CreateProfile" element={ <CreateProfile setUser = {setUser} user = {user} /> } />
-          <Route exact path= "/EditProfile" element = { <EditProfile setUser = {setUser} user = {user}/> } />
-          <Route exact path= "/SavedDevices" element = { <SavedDevices /> } />
-          <Route exact path= "/CreatePatient" element = { <CreatePatient handleAddPatient={handleAddPatient}/> } />
-          <Route exact path= "/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
-          <Route exact path= "/CreatePatient/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
-          <Route exact path= "/PatientRom" element = { <PatientRom handleAddDevice={handleAddDevice} currentPatient = {currentPatient} /> } />
-          <Route exact path= "/CreatePatient/PatientGoals/PatientRom" element = { <PatientRom handleAddDevice={handleAddDevice} currentPatient = {currentPatient}/> } />
-          <Route exact path= "/PatientMmt" element = { <PatientMmt currentPatient = {currentPatient} /> } />
-          <Route exact path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt" element = { <PatientMmt currentPatient = {currentPatient} /> } />
-          <Route exact path= "/PatientGait" element = { <PatientGait currentDevice = {currentDevice} /> } />
-          <Route exact path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt/PatientGait" element = { <PatientGait currentDevice = {currentDevice} /> } />
-          <Route exact path= "/DeviceRec" element = { <DeviceRec currentPatient = {currentPatient} currentDevice = {currentDevice} /> } />
-          <Route exact path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt/PatientGait/DeviceRec" element = { <DeviceRec currentPatient = {currentPatient} currentDevice = {currentDevice} /> } />
+          <Route path= "/" element={ <Login user={user} onLogin={handleLogin}/> } />
+          <Route path= "/CreateProfile" element={ <CreateProfile setUser = {setUser} user = {user} /> } />
+          <Route path= "/EditProfile" element = { <EditProfile setUser = {setUser} user = {user}/> } />
+          <Route path= "/SavedDevices" element = { <SavedDevices /> } />
+          <Route path= "/CreatePatient" element = { <CreatePatient handleAddPatient={handleAddPatient}/> } />
+          <Route path= "/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
+          <Route path= "/CreatePatient/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
+          <Route path= "/PatientRom" element = { <PatientRom handleAddDevice={handleAddDevice} currentPatient = {currentPatient} /> } />
+          <Route path= "/CreatePatient/PatientGoals/PatientRom" element = { <PatientRom handleAddDevice={handleAddDevice} currentPatient = {currentPatient}/> } />
+          <Route path= "/PatientMmt" element = { <PatientMmt currentPatient = {currentPatient} /> } />
+          <Route path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt" element = { <PatientMmt currentPatient = {currentPatient} /> } />
+          <Route path= "/PatientGait" element = { <PatientGait currentDevice = {currentDevice} /> } />
+          <Route path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt/PatientGait" element = { <PatientGait currentDevice = {currentDevice} /> } />
+          <Route path= "/DeviceRec" element = { <DeviceRec currentPatient = {currentPatient} currentDevice = {currentDevice} /> } />
+          <Route path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt/PatientGait/DeviceRec" element = { <DeviceRec currentPatient = {currentPatient} currentDevice = {currentDevice} /> } />
         </Routes>
     </div>
   );
