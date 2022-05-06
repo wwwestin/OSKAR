@@ -141,7 +141,7 @@ function PatientMmt ({currentPatient}) {
                 <button className = "presentationButton" onClick = {handleSubmit7} type= "submit">Knee Flexion= 2/5, Knee Extension = 2/5, Dorsiflexion = 0/5, Plantarflexion = 0/5</button>
                 <button className = "presentationButton" onClick = {handleSubmit8} type= "submit">Knee Flexion= 2/5, Knee Extension = 1/5, Dorsiflexion = 0/5, Plantarflexion = 0/5</button>
                 <button className = "presentationButton" onClick = {handleSubmit9} type= "submit">Knee Flexion= 1/5, Knee Extension = 1/5, Dorsiflexion = 0/5, Plantarflexion = 0/5</button>
-                <button className = "presentationButton" onClick = {handleSubmit3} type= "submit">Knee Flexion= 0/5, Knee Extension = 0/5, Dorsiflexion = 0/5, Plantarflexion = 0/5</button>
+                <button className = "presentationButton" onClick = {handleSubmit10} type= "submit">Knee Flexion= 0/5, Knee Extension = 0/5, Dorsiflexion = 0/5, Plantarflexion = 0/5</button>
         </div>
     )
 }

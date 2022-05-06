@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom"
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 
 function Login ({onLogin}) {
@@ -35,6 +36,9 @@ function Login ({onLogin}) {
 }
 
     return (
+        <Container>
+        <Row>
+    <Col>
      <form onSubmit={handleSubmit} className="container">
         <label for="username"><b>Username</b> </label>
             <br></br>
@@ -62,12 +66,15 @@ function Login ({onLogin}) {
         <p className="error"> {pass}</p>
                 <br></br>
             <div className="buttonSection">
-                <button className= "loginButtons" type="submit"> 
+                <Button className= "loginButtons" type="submit"> 
                     {loading? <Link to="/CreatePatient"> "Loading..."</Link>: "Login" }
-                </button>
-            <Link to="/CreateProfile"> <button className= "loginButtons">Create Profile</button> </Link>
+                </Button>
+            <Link to="/CreateProfile"> <Button className= "loginButtons">Create Profile</Button> </Link>
         </div>
     </form>
+    </Col>
+    </Row>
+    </Container>
     )
 }
 
