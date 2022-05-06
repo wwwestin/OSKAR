@@ -17,15 +17,15 @@ p9= Patient.create!(name: 42, goal: "Full Gait Cycles", mmt: "Knee Flexion= 3/5,
 p10= Patient.create!(name: 999, goal: "Full Gait Cycles", mmt: "Knee Flexion= 2/5, Knee Extension = 4/5, Dorsiflexion = 1/5, Plantarflexion = 1/5", user_id: u2.id)
 
 puts "Creating test devices.."
-Device.create!(ankle_angle: 5, sva: "10-12", brace: "SAFO", footwear: "Rocker Sole", patient_id: p3.id)
-Device.create!(ankle_angle: 3, sva: "14-15", brace: "SAFO with Free MPTJ", footwear: "Flat/Rounded Sole", patient_id: p4.id)
-Device.create!(ankle_angle: 10, sva: "10-12", brace: "SAFO", footwear: "Flat/Rounded Sole", patient_id: p7.id)
-Device.create!(ankle_angle: 12, sva: "15-19", brace: "SAFO with Free MPTJ", footwear: "Point Loading Rocker", patient_id: p8.id)
-Device.create!(ankle_angle: 15, sva: "14-15", brace: "SAFO with Free MPTJ", footwear: "Negative Heel", patient_id: p10.id)
-Device.create!(ankle_angle: 3, sva: "14-15", brace: "SAFO with Fixed MPTJ", footwear: "Negative Heel", patient_id: p2.id)
-Device.create!(ankle_angle: 10, sva: "10-12", brace: "SAFO", footwear: "Rocker Sole", patient_id: p1.id)
-Device.create!(ankle_angle: 5, sva: "14-15", brace: "SAFO", footwear: "Plain Heel", patient_id: p6.id)
-Device.create!(ankle_angle: 3, sva: "10-12", brace: "SAFO", footwear: "Rocker Sole", patient_id: p5.id)
+Device.create!(ankle_angle: 5, sva: "10-12", brace: "Solid AFO with Fixed MPTJ", footwear: "Rocker Sole", patient_id: p3.id)
+Device.create!(ankle_angle: 3, sva: "14-15", brace: "Solid AFO with Free MPTJ", footwear: "Flat/Rounded Sole", patient_id: p4.id)
+Device.create!(ankle_angle: 10, sva: "10-12", brace: "Solid AFO with Free MPTJ", footwear: "Flat/Rounded Sole", patient_id: p7.id)
+Device.create!(ankle_angle: 12, sva: "15-19", brace: "Solid AFO with Free MPTJ", footwear: "Point Loading Rocker", patient_id: p8.id)
+Device.create!(ankle_angle: 15, sva: "14-15", brace: "Solid AFO with Free MPTJ", footwear: "Negative Heel", patient_id: p10.id)
+Device.create!(ankle_angle: 3, sva: "14-15", brace: "Solid AFO with Fixed MPTJ", footwear: "Negative Heel", patient_id: p2.id)
+Device.create!(ankle_angle: 10, sva: "10-12", brace: "Solid AFO with Fixed MPTJ", footwear: "Rocker Sole", patient_id: p1.id)
+Device.create!(ankle_angle: 5, sva: "14-15", brace: "Solid AFO with Free MPTJ", footwear: "Plain Heel", patient_id: p6.id)
+Device.create!(ankle_angle: 3, sva: "10-12", brace: "Articulated AFO", footwear: "Rocker Sole", patient_id: p5.id)
 Device.create!(ankle_angle: 8, sva: "15-19", brace: "Articulated AFO", footwear: "Negative Heel", patient_id: p1.id)
 
 puts "Seeding done!"
