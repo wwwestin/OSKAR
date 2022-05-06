@@ -36,7 +36,7 @@ function Login ({onLogin}) {
 }
 
     return (
-        <Container>
+        <Container fluid = "lg">
         <Row>
     <Col>
      <form onSubmit={handleSubmit} className="container">
