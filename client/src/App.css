@@ -69,6 +69,10 @@ a:link {
   margin-top: 150px;
 }
 
+.patientGait {
+  margin-top: 50px;
+}
+
 .presentationButton {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -76,6 +80,29 @@ a:link {
   margin-right: 10px;
 }
 
+.deviceCard {
+  margin-top: 50px;
+  display: inline-block;
+  border-radius: .75rem;
+  box-shadow: 10px 5px 5px black
+}
+
+.patientCard {
+  margin-top: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
+  display: inline-block;
+  border-radius: .75rem;
+  box-shadow: 10px 5px 5px black
+}
+
+.editProfile {
+  margin-top: 150px;
+  display: inline-block;
+  clear: right;
+  text-align: center;
+  width: 250px;
+}
 
 
 

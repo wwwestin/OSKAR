@@ -34,7 +34,7 @@ function Header ({user,onLogout}){
             </Row>
             <Row>
                 <Col style={{display:'flex', justifyContent:'center'}}>
-                    <p><b>O</b>ptimal <b>S</b>egmental <b>K</b>inematics and <b>A</b>lignment Approach to <b>R</b>ehabilitation</p>
+                    <p><b>O</b>ptimal <b>S</b>egmental <b>K</b>inematics and <b>A</b>lignment approach to <b>R</b>ehabilitation</p>
                 </Col>
             </Row>
                 <div>

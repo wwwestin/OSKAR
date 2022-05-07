@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Button} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 import "./App.css"
 
 function DeviceRec ({currentPatient, currentDevice}) {
@@ -21,18 +21,23 @@ function DeviceRec ({currentPatient, currentDevice}) {
       }, []);
     
     return (
-        <div className= "deviceRec">
-            <h7><b>Patient:</b></h7>
-                <ul>
-                    <p><b>Name:</b> {name}</p>
-                </ul>
-            <h8><b>Brace Configuration Recommendation:</b></h8>
-                <ul>
-                    <p><b>Brace:</b> {brace}</p>
-                    <p><b>Ankle Angle:</b> {ankle_angle} Degrees Plantarflexed</p>
-                    <p><b>Shank to Vertical Angle (SVA):</b> {sva} Degrees Inclined</p>
-                    <p><b>Footwear Configuration:</b> {footwear}</p>
-                </ul>
+        <div className= "deviceCard">
+            <Card style={{width:'18rem'}}>
+                <Card.Body>
+                    <Card.Title><b>Name:</b> {name}</Card.Title>
+                        <br></br>
+                        <Card.Subtitle><b>Brace Configuration Recommendation:</b></Card.Subtitle>
+                            <Card.Text>
+                                <br></br>
+                                    <ul>
+                                        <p><b>Brace:</b> {brace}</p>
+                                        <p><b>Ankle Angle:</b> {ankle_angle} Degrees Plantarflexed</p>
+                                        <p><b>Shank to Vertical Angle (SVA):</b> {sva} Degrees Inclined</p>
+                                        <p><b>Footwear Configuration:</b> {footwear}</p>
+                                    </ul>
+                            </Card.Text>
+                </Card.Body>
+            </Card>
         </div>
     )
 }

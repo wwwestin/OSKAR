@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import {Button} from 'react-bootstrap';
+import "./App.css"
 
 function EditProfile ({setUser}) {
 
@@ -42,10 +44,10 @@ function EditProfile ({setUser}) {
     }
     
     return (
-        <div>
+        <div className = "editProfile">
             <p><b>WARNING! Changing Your Password Will Log You Out!</b></p>
             <form onSubmit={handleSubmit} className="form">
-            <label for = "username">Username</label>
+            <label for = "username"><b>Username</b></label>
                     <input 
                         id="username" 
                         type="text"
@@ -53,7 +55,7 @@ function EditProfile ({setUser}) {
                         value={username}
                         onChange={x => setUsername(x.target.value)}
                     />
-                <label for = "password">Type New Password</label>
+                <label for = "password"><b>Type New Password</b></label>
                         <input 
                             id="password" 
                             type="password"
@@ -62,7 +64,7 @@ function EditProfile ({setUser}) {
                             onChange={x => setPassword(x.target.value)}
                             autoComplete= "current-password"
                         />
-                    <label for = "passwordConfirm">Confirm New Password</label>
+                    <label for = "passwordConfirm"><b>Confirm New Password</b></label>
                         <input type="password"
                         className="changeProfileInput"
                         id="password_confirm"
@@ -72,10 +74,9 @@ function EditProfile ({setUser}) {
                         />
                         <br></br>
                         <div className="buttonChoice">
-                        <button className="btn-gradient" onSubmit={handleSubmit} type="submit" >{loading? "Loading...": "Submit Password Change"}</button>
+                        <Button className="btn-gradient" onSubmit={handleSubmit} type="submit" >{loading? "Loading...": "Submit Password Change"}</Button>
                 </div>
             </form>
-
         </div>
     )
 }
