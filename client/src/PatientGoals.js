@@ -1,5 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import {Button} from 'react-bootstrap';
+import "./App.css"
 
 function PatientGoals ({currentPatient}) {
 
@@ -48,9 +50,9 @@ function PatientGoals ({currentPatient}) {
     return (
         <div className= "patientGoals">
             <h3>Select Patient Goals</h3>
-                <button className = "presentationButton" onClick={handleSubmit1} type="submit">Full Gait Cycles</button>
-                <button className = "presentationButton" onClick={handleSubmit2} type="submit">Stepping</button>
-                <button className = "presentationButton" onClick={handleSubmit3} type="submit">Standing</button>
+                <Button className = "presentationButton" onClick={handleSubmit1} type="submit">Full Gait Cycles</Button>
+                <Button className = "presentationButton" onClick={handleSubmit2} type="submit">Stepping</Button>
+                <Button className = "presentationButton" onClick={handleSubmit3} type="submit">Standing</Button>
         </div>
     )
 }

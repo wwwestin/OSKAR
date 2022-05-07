@@ -37,6 +37,45 @@ a:link {
   box-shadow: 10px 5px 5px black
 }
 
+.createProfileForm { 
+  margin-top: 150px;
+}
+
+.createProfileForm {
+  margin-top: 150px;
+  display: inline-block;
+  clear: right;
+  text-align: center;
+  width: 250px;
+}
+
+.buttonChoice {
+  margin-top: 50px;
+}
+
+.addPatient {
+  margin-top: 150px;
+}
+
+.patientGoals {
+  margin-top: 150px;
+}
+
+.patientMMT {
+  margin-top: 150px;
+}
+
+.patientRom {
+  margin-top: 150px;
+}
+
+.presentationButton {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 
 
 

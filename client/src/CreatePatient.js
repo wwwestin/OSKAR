@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {Button} from 'react-bootstrap';
+import "./App.css"
 
 function CreatePatient ({handleAddPatient}) {
 
@@ -28,7 +30,7 @@ function CreatePatient ({handleAddPatient}) {
     return (
         <div>
             <div className = "addPatient">
-                <h2>Add a Patient</h2>
+                <h2>Add a Patient (De-Identified)</h2>
                     <form onSubmit={handleSubmit}>
                         <input 
                             className="addPatientForm" 
@@ -37,7 +39,7 @@ function CreatePatient ({handleAddPatient}) {
                             placeholder= "Add Patient as Number" 
                             onChange={onChange} 
                         />
-                        <button className="submitButtonDisplay" type="submit" >Submit</button>
+                        <Button className="submitButtonDisplay" type="submit" >Submit</Button>
                     </form>
                     
                 </div>
@@ -47,23 +49,3 @@ function CreatePatient ({handleAddPatient}) {
 
 export default CreatePatient;
 
-// Not Needed for Now:
-
-//<PatientGoals newPatient={newPatient}/>
-
-//const [patient, setPatient] = useState([]);
-
-//    .then(response => response.json())
-    //    .then(json => {
-    //        fetch("/me/patients")
-    //        .then(resp => resp.json())
-    //        .then(data => setPatient(data.patients))
-    //        });
-
-    // useEffect(() => {
-    //     fetch("/me/patients").then((response) => {
-    //       if (response.ok) {
-    //         response.json().then((data) => setPatient(data.patients));
-    //       }
-    //     });
-    //   }, []);

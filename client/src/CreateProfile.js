@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import {Button} from 'react-bootstrap';
 import "./App.css"
 
 function CreateProfile ({setUser}) {
@@ -30,6 +31,7 @@ function CreateProfile ({setUser}) {
             setLoading(false)
             setUsername("")
             setPassword("")
+            setPasswordConfirm("")
             console.log(response)
             if(response.ok){
                 response.json().then(info=> {
@@ -44,8 +46,8 @@ function CreateProfile ({setUser}) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit} className="form">
-                <label for = "username">Username</label>
+            <form onSubmit={handleSubmit} className="createProfileForm">
+                <label for = "username"><b>Username:</b></label>
                     <input 
                         id="username" 
                         type="text"
@@ -53,7 +55,8 @@ function CreateProfile ({setUser}) {
                         value={username}
                         onChange={x => setUsername(x.target.value)}
                     />
-                <label for = "password">Password</label>
+                    <br></br>
+                <label for = "password"><b>Password:</b></label>
                     <input 
                         id="password" 
                         type="password"
@@ -62,7 +65,8 @@ function CreateProfile ({setUser}) {
                         onChange={x => setPassword(x.target.value)}
                         autoComplete= "current-password"
                     />
-                <label for = "passwordConfirm">Confirm Password</label>
+                    <br></br>
+                <label for = "passwordConfirm"><b>Confirm Password:</b></label>
                     <input type="password"
                     className="createProfileInput"
                     id="password_confirm"
@@ -72,8 +76,8 @@ function CreateProfile ({setUser}) {
                     />
                     <br></br>
                     <div className="buttonChoice">
-                        <button className="btn-gradient" onSubmit={handleSubmit} type="submit" >{loading? "Loading...": "Create Profile"}</button>
-                            <Link to="/"> <button className='btn-gradient'>I Already Have a Profile</button></Link>
+                        <Button  onSubmit={handleSubmit} type="submit" >{loading? "Loading...": "Create Profile"}</Button>
+                            <Link to="/"> <Button>I Already Have a Profile</Button></Link>
                 </div>
             </form>
         </div>

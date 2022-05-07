@@ -1,5 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import {Button} from 'react-bootstrap';
+import "./App.css"
 
 function PatientRom ({handleAddDevice, currentPatient}) {
 
@@ -150,18 +152,18 @@ function PatientRom ({handleAddDevice, currentPatient}) {
     }
 
     return (
-        <div className= "patientGoals">
+        <div className= "patientRom">
             <h4>Select Patient ROM Combination</h4>
-                <button className = "presentationButton" onClick = {handleSubmit1} type= "submit">Knee Flexion/Extension= Within Normal Limits, R1= Neutral, R2= 5 Degrees Dorsiflexion</button>
-                <button className = "presentationButton" onClick = {handleSubmit2} type= "submit">Knee Flexion/Extension= Within Normal Limits, R1= 3 Degrees Plantarflexion, R2= Neutral</button>
-                <button className = "presentationButton" onClick = {handleSubmit3} type= "submit">Knee Flexion/Extension= Within Normal Limits, R1= 5 Degrees Plantarflexion, R2= Neutral</button>
-                <button className = "presentationButton" onClick = {handleSubmit4} type= "submit">Knee Flexion/Extension= Within Normal Limits, R1= 8 Degrees Plantarflexion, R2= 3 Degrees Plantarflexion</button>
-                <button className = "presentationButton" onClick = {handleSubmit5} type= "submit">Knee Flexion/Extension= Within Normal Limits, R1= 10 Degrees Plantarflexion, R2= 5 Degrees Plantarflexion</button>
-                <button className = "presentationButton" onClick = {handleSubmit6} type= "submit">Knee Flexion/Extension= -5 Degrees Extension, R1= 12 Degrees Plantarflexion, R2= 8 Degrees Plantarflexion</button>
-                <button className = "presentationButton" onClick = {handleSubmit7} type= "submit">Knee Flexion/Extension= -5 Degrees Extension, R1= 15 Degrees Plantarflexion, R2= 10 Degrees Plantarflexion</button>
-                <button className = "presentationButton" onClick = {handleSubmit8} type= "submit">Knee Flexion/Extension= -10 Degrees Extension, R1= 18 Degrees Plantarflexion, R2= 12 Degrees Plantarflexion</button>
-                <button className = "presentationButton" onClick = {handleSubmit9} type= "submit">Knee Flexion/Extension= -10 Degrees Extension, R1= 20 Degrees Plantarflexion, R2= 15 Degrees Plantarflexion</button>
-                <button className = "presentationButton" onClick = {handleSubmit10} type= "submit">Knee Flexion/Extension= -15 Degrees Extension, R1= 23 Degrees Plantarflexion, R2= 18 Degrees Plantarflexion</button>
+                <Button className = "presentationButton" onClick = {handleSubmit1} type= "submit"><ul><li>Knee Flexion/Extension= Within Normal Limits</li><li>R1= Neutral</li><li>R2= 5 Degrees Dorsiflexion</li></ul></Button>
+                <Button className = "presentationButton" onClick = {handleSubmit2} type= "submit"><ul><li>Knee Flexion/Extension= Within Normal Limits</li><li>R1= 3 Degrees Plantarflexion</li><li>R2= Neutral</li></ul></Button>
+                <Button className = "presentationButton" onClick = {handleSubmit3} type= "submit"><ul><li>Knee Flexion/Extension= Within Normal Limits</li><li>R1= 5 Degrees Plantarflexion</li><li>R2= Neutral</li></ul></Button>
+                <Button className = "presentationButton" onClick = {handleSubmit4} type= "submit"><ul><li>Knee Flexion/Extension= Within Normal Limits</li><li>R1= 8 Degrees Plantarflexion</li><li>R2= 3 Degrees Plantarflexion</li></ul></Button>
+                <Button className = "presentationButton" onClick = {handleSubmit5} type= "submit"><ul><li>Knee Flexion/Extension= Within Normal Limits</li><li>R1= 10 Degrees Plantarflexion</li><li>R2= 5 Degrees Plantarflexion</li></ul></Button>
+                <Button className = "presentationButton" onClick = {handleSubmit6} type= "submit"><ul><li>Knee Flexion/Extension= -5 Degrees Extension</li><li>R1= 12 Degrees Plantarflexion</li><li>R2= 8 Degrees Plantarflexion</li></ul></Button>
+                <Button className = "presentationButton" onClick = {handleSubmit7} type= "submit"><ul><li>Knee Flexion/Extension= -5 Degrees Extension</li><li>R1= 15 Degrees Plantarflexion</li><li>R2= 10 Degrees Plantarflexion</li></ul></Button>
+                <Button className = "presentationButton" onClick = {handleSubmit8} type= "submit"><ul><li>Knee Flexion/Extension= -10 Degrees Extension</li><li>R1= 18 Degrees Plantarflexion</li><li>R2= 12 Degrees Plantarflexion</li></ul></Button>
+                <Button className = "presentationButton" onClick = {handleSubmit9} type= "submit"><ul><li>Knee Flexion/Extension= -10 Degrees Extension</li><li>R1= 20 Degrees Plantarflexion</li><li>R2= 15 Degrees Plantarflexion</li></ul></Button>
+                <Button className = "presentationButton" onClick = {handleSubmit10} type= "submit"><ul><li>Knee Flexion/Extension= -15 Degrees Extension</li><li>R1= 23 Degrees Plantarflexion</li><li>R2= 18 Degrees Plantarflexion</li></ul></Button>
         </div>
     )
 }
