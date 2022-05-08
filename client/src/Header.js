@@ -14,10 +14,10 @@ function Header ({user,onLogout}){
         <div>
             <Container>
             <Row>
-            <Col></Col>
-                <Col style={{display:'flex', justifyContent:'center'}}>
+                <Col style={{display:'flex', justifyContent:'left'}}>
                     <h1 className="title"><b>OSKAR</b></h1>
                 </Col>
+                <Col></Col>
                 <Col style={{display:'flex', justifyContent:'right', paddingTop: 10}}>
                         {user ? (
                         <div class= "profile">
@@ -33,13 +33,13 @@ function Header ({user,onLogout}){
                 </Col>
             </Row>
             <Row>
-                <Col style={{display:'flex', justifyContent:'center'}}>
+                <Col style={{display:'flex', justifyContent:'left'}}>
                     <p className="acronym"><b>O</b>ptimal <b>S</b>egmental <b>K</b>inematics and <b>A</b>lignment approach to <b>R</b>ehabilitation</p>
                 </Col>
             </Row>
                 <div>
                     <Row>
-                    <Col style={{display:'flex', justifyContent:'center'}}>
+                    <Col style={{display:'flex', justifyContent:'left'}}>
                         <Navbar className="navBar" bg = "grey">
                         <Navbar.Brand href="/">
                             <img
@@ -56,6 +56,7 @@ function Header ({user,onLogout}){
                             </Navbar.Brand>
                         </Navbar>
                     </Col>
+                    <Col></Col>
                     </Row>
             </div>
         </Container>

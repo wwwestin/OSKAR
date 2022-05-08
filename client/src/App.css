@@ -34,34 +34,11 @@ background-color: dimgray;
   background-color: dimgray !important;
   border-color: dimgray !important;
   opacity: .7;
-  animation: fadeIn 5s;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
-}
-
-.title {
-  animation: fadeIn 3s;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
-}
-
-.acronym {
-  animation: fadeIn 3s;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
 }
 
 .navBar {
   border-radius: .5rem;
   opacity: 0.7;
-  animation: fadeIn 4s;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 .loginContainer {
@@ -74,9 +51,6 @@ background-color: dimgray;
   padding-bottom: 30px;
   padding-top: 5px;
   border-radius: .75rem;
-  animation: fadeIn 5s;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
 }
 
 .inputLogin {
@@ -218,6 +192,4 @@ ul {
   padding-top: 5px;
   border-radius: .75rem;
 }
-
-
 
