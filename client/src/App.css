@@ -42,14 +42,31 @@ background-color: dimgray;
 
 .loginContainer {
   margin-top: 150px;
+  display: inline-block;
+  clear: right;
+  text-align: center;
+  width: 250px;
+  border: 2px solid dimgray;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: .75rem;
 }
 
 .inputLogin {
-  box-shadow: 10px 5px 5px black;
+  opacity: .7;
+  border-radius: .3rem;
 }
 
 .createProfileForm { 
   margin-top: 150px;
+  display: inline-block;
+  clear: right;
+  text-align: center;
+  width: 250px;
+  border: 2px solid dimgray;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: .75rem;
 }
 
 .createProfileForm {
@@ -58,6 +75,11 @@ background-color: dimgray;
   clear: right;
   text-align: center;
   width: 250px;
+}
+
+.createProfileInput {
+  opacity: .7;
+  border-radius: .3rem;
 }
 
 .buttonChoice {

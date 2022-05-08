@@ -77,7 +77,6 @@ function CreateProfile ({setUser}) {
                     <br></br>
                     <div className="buttonChoice">
                         <Button  onSubmit={handleSubmit} type="submit" >{loading? "Loading...": "Create Profile"}</Button>
-                            <Link to="/"> <Button>I Already Have a Profile</Button></Link>
                 </div>
             </form>
         </div>
