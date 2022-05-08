@@ -23,7 +23,7 @@ a:link {
 .buttonText {
   color: white;
   margin: 20px;
-  opacity: 100;
+  opacity: 1;
 }
 
 .bg-grey {
@@ -33,11 +33,35 @@ background-color: dimgray;
 .btn-primary {
   background-color: dimgray !important;
   border-color: dimgray !important;
+  opacity: .7;
+  animation: fadeIn 5s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+.title {
+  animation: fadeIn 3s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+.acronym {
+  animation: fadeIn 3s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
 }
 
 .navBar {
   border-radius: .5rem;
   opacity: 0.7;
+  animation: fadeIn 4s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .loginContainer {
@@ -47,14 +71,21 @@ background-color: dimgray;
   text-align: center;
   width: 250px;
   border: 2px solid dimgray;
-  padding-bottom: 5px;
+  padding-bottom: 30px;
   padding-top: 5px;
   border-radius: .75rem;
+  animation: fadeIn 5s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
 }
 
 .inputLogin {
   opacity: .7;
   border-radius: .3rem;
+}
+
+.buttonSection {
+  margin-top: -25px; 
 }
 
 .createProfileForm { 
@@ -64,7 +95,7 @@ background-color: dimgray;
   text-align: center;
   width: 250px;
   border: 2px solid dimgray;
-  padding-bottom: 5px;
+  padding-bottom: 20px;
   padding-top: 5px;
   border-radius: .75rem;
 }
@@ -83,7 +114,7 @@ background-color: dimgray;
 }
 
 .buttonChoice {
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .addPatient {

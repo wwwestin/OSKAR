@@ -16,7 +16,7 @@ function Header ({user,onLogout}){
             <Row>
             <Col></Col>
                 <Col style={{display:'flex', justifyContent:'center'}}>
-                    <h1><b>OSKAR</b></h1>
+                    <h1 className="title"><b>OSKAR</b></h1>
                 </Col>
                 <Col style={{display:'flex', justifyContent:'right', paddingTop: 10}}>
                         {user ? (
@@ -34,7 +34,7 @@ function Header ({user,onLogout}){
             </Row>
             <Row>
                 <Col style={{display:'flex', justifyContent:'center'}}>
-                    <p><b>O</b>ptimal <b>S</b>egmental <b>K</b>inematics and <b>A</b>lignment approach to <b>R</b>ehabilitation</p>
+                    <p className="acronym"><b>O</b>ptimal <b>S</b>egmental <b>K</b>inematics and <b>A</b>lignment approach to <b>R</b>ehabilitation</p>
                 </Col>
             </Row>
                 <div>
