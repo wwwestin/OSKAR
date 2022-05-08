@@ -22,17 +22,20 @@ function DeviceRec ({currentPatient, currentDevice}) {
     
     return (
         <div className= "deviceCard">
-            <Card style={{width:'18rem'}}>
+            <Card bg='card' style={{width:'18rem'}}>
                 <Card.Body>
                     <Card.Title><b>Name:</b> {name}</Card.Title>
-                        <br></br>
+                        <hr></hr>
                         <Card.Subtitle><b>Brace Configuration Recommendation:</b></Card.Subtitle>
                             <Card.Text>
-                                <br></br>
+                                <hr></hr>
                                     <ul>
                                         <p><b>Brace:</b> {brace}</p>
+                                        <hr></hr>
                                         <p><b>Ankle Angle:</b> {ankle_angle} Degrees Plantarflexed</p>
+                                        <hr></hr>
                                         <p><b>Shank to Vertical Angle (SVA):</b> {sva} Degrees Inclined</p>
+                                        <hr></hr>
                                         <p><b>Footwear Configuration:</b> {footwear}</p>
                                     </ul>
                             </Card.Text>

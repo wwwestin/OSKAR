@@ -23,10 +23,21 @@ a:link {
 .buttonText {
   color: white;
   margin: 20px;
+  opacity: 100;
+}
+
+.bg-grey {
+background-color: dimgray;
+}
+
+.btn-primary {
+  background-color: dimgray !important;
+  border-color: dimgray !important;
 }
 
 .navBar {
   border-radius: .5rem;
+  opacity: 0.7;
 }
 
 .loginContainer {
@@ -34,7 +45,7 @@ a:link {
 }
 
 .inputLogin {
-  box-shadow: 10px 5px 5px black
+  box-shadow: 10px 5px 5px black;
 }
 
 .createProfileForm { 
@@ -55,22 +66,56 @@ a:link {
 
 .addPatient {
   margin-top: 150px;
+  border: 2px solid dimgray;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: .75rem;
+  width: 500px;
+  display: inline-block;
 }
 
 .patientGoals {
   margin-top: 150px;
-}
-
-.patientMMT {
-  margin-top: 150px;
+  border: 2px solid dimgray;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: .75rem;
+  width: 500px;
+  display: inline-block;
 }
 
 .patientRom {
   margin-top: 150px;
+  border: 2px solid dimgray;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: .75rem;
+  width: 1500px;
+  display: inline-block;
+}
+
+.patientMMT {
+  margin-top: 150px;
+  border: 2px solid dimgray;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: .75rem;
+  width: 1500px;
+  display: inline-block;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .patientGait {
   margin-top: 50px;
+  border: 2px solid dimgray;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: .75rem;
+  width: 1000px;
+  display: inline-block;
 }
 
 .presentationButton {
@@ -82,6 +127,9 @@ a:link {
 
 .deviceCard {
   margin-top: 50px;
+  padding-right: 10px;
+  background: dimgray;
+  background-color: dimgray;
   display: inline-block;
   border-radius: .75rem;
   box-shadow: 10px 5px 5px black
@@ -91,9 +139,19 @@ a:link {
   margin-top: 50px;
   margin-right: 10px;
   margin-left: 10px;
+  padding-right: 10px;
+  background: dimgray;
+  background-color: dimgray;
   display: inline-block;
   border-radius: .75rem;
   box-shadow: 10px 5px 5px black
+}
+
+.card {
+  background: dimgray !important;
+  background-color: dimgray !important;
+  color: white;
+  opacity: .7;
 }
 
 .editProfile {
@@ -102,6 +160,10 @@ a:link {
   clear: right;
   text-align: center;
   width: 250px;
+  border: 2px solid dimgray;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: .75rem;
 }
 
 

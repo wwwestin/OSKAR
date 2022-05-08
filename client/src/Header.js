@@ -23,7 +23,7 @@ function Header ({user,onLogout}){
                         <div class= "profile">
                         <p>Welcome, {user.username}!</p>
                         <br></br>
-                        <Button class= "logoutButton" onClick={handleLogout}>Logout</Button>
+                        <Button bg="grey" class= "logoutButton" onClick={handleLogout}>Logout</Button>
                     </div>
                     ) : (
                     <div>
@@ -40,7 +40,7 @@ function Header ({user,onLogout}){
                 <div>
                     <Row>
                     <Col style={{display:'flex', justifyContent:'center'}}>
-                        <Navbar className="navBar" bg = "dark" variant="light">
+                        <Navbar className="navBar" bg = "grey">
                         <Navbar.Brand href="/">
                             <img
                                 alt="Person Walking"
