@@ -53,6 +53,7 @@ function Header ({user,onLogout}){
                                 <a className = "buttonText" href="/CreatePatient">Add Patient</a>
                                 <a className = "buttonText" href="/EditProfile">Edit Profile</a>
                                 <a className = "buttonText" href="/SavedDevices">Saved Devices</a>
+                                <a className = "buttonText" href="/Resources">Resources</a>
                             </Navbar.Brand>
                         </Navbar>
                     </Col>

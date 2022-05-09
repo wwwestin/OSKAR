@@ -11,6 +11,7 @@ import PatientRom from "./PatientRom";
 import PatientMmt from "./PatientMmt";
 import PatientGait from "./PatientGait";
 import DeviceRec from "./DeviceRec";
+import Resources from "./Resources";
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
           <Route path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt/PatientGait" element = { <PatientGait currentDevice = {currentDevice} /> } />
           <Route path= "/DeviceRec" element = { <DeviceRec currentPatient = {currentPatient} currentDevice = {currentDevice} /> } />
           <Route path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt/PatientGait/DeviceRec" element = { <DeviceRec currentPatient = {currentPatient} currentDevice = {currentDevice} /> } />
+          <Route path= "/Resources" element = { <Resources /> } />
         </Routes>
     </div>
   );
