@@ -193,3 +193,14 @@ ul {
   border-radius: .75rem;
 }
 
+.resourcesCard {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: inline-block;
+  text-align: center;
+}
+
+.resourceLink {
+  color: black !important;
+  font-weight: bold;
+}
