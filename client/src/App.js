@@ -51,7 +51,7 @@ function App() {
           <Route path= "/" element={ <Login user={user} onLogin={handleLogin}/> } />
           <Route path= "/CreateProfile" element={ <CreateProfile setUser = {setUser} user = {user} /> } />
           <Route path= "/EditProfile" element = { <EditProfile setUser = {setUser} user = {user}/> } />
-          <Route path= "/SavedDevices" element = { <SavedDevices /> } />
+          <Route path= "/SavedDevices" element = { <SavedDevices user = {user}/> } />
           <Route path= "/CreatePatient" element = { <CreatePatient handleAddPatient={handleAddPatient}/> } />
           <Route path= "/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
           <Route path= "/CreatePatient/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import PatientContainer from "./PatientContainer";
 
-function SavedDevices () {
+function SavedDevices ({user}) {
 
     const [userSavedDevices, setUserSavedDevices]=useState([]);
     const [deviceDetails, setDeviceDetails]=useState([]);
@@ -14,8 +14,6 @@ function SavedDevices () {
 
       const patIds = userSavedDevices.map((obj) => obj.id);
       
-      //console.log(patIds)
-
       useEffect(() => {
         fetch("/devices/")
           .then((r) => {return r.json()})
@@ -24,29 +22,17 @@ function SavedDevices () {
 
       const patArray = deviceDetails.filter(g => patIds.some(f => g.patient.id === f));
 
-      //console.log(patArray)
-
-    //   const deconMap = patArray.map(pat => {
-    //       return (
-    //           <PatientCard
-    //           key= {pat.id}
-    //           name= {pat.patient.name}
-    //           goal= {pat.patient.goal}
-    //           mmt= {pat.patient.mmt}
-    //           ankle_angle= {pat.ankle_angle}
-    //           sva= {pat.sva}
-    //           brace= {pat.brace}
-    //           footwear= {pat.footwear}
-    //           />
-    //       )
-    //   })
-
-      //console.log(deconMap)
-
-
       return (
         <div>
-            <PatientContainer patArray= {patArray} />
+            {user ? (
+              <div>
+              <PatientContainer patArray= {patArray} />
+              </div>
+            ) : (
+              <div className="message">
+                <p>Please Login to View this Information!</p>
+              </div>
+            )}
         </div>
     )
 }

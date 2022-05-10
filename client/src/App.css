@@ -204,3 +204,18 @@ ul {
   color: black !important;
   font-weight: bold;
 }
+
+.message {
+  animation: fadein 5s;
+  margin-top: 150px;
+  
+}
+
+@keyframes fadein {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
