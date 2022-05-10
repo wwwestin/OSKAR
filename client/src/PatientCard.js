@@ -4,9 +4,7 @@ import { Card } from "react-bootstrap";
 function PatientCard ({p}) {
 
     const {ankle_angle, sva, brace, footwear, patient: {name, goal, mmt}} = p;
-    //, patient: {name, goal, mmt}
-    //console.log(patArray)
-
+    
     return (
         <div className="patientCard">
             <Card bg='card' style={{width:'30rem' }}>

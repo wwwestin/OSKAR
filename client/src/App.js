@@ -20,7 +20,7 @@ function App() {
   const [currentPatient, setCurrentPatient] = useState([]);
   const [currentDevice, setCurrentDevice] = useState([]);
 
-    useEffect(() => {
+  useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => setUser(user));

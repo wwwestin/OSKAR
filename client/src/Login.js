@@ -49,9 +49,9 @@ return (
                 onChange={e => setUsername(e.target.value) }
             />
                 <p className="error">{error}</p>
-                <br></br>
+            <br></br>
             <label for="password"> <b>Password</b> </label>
-                <br></br>
+            <br></br>
                 <input 
                     type="password" 
                     placeholder="Password" 
@@ -62,7 +62,7 @@ return (
                     onChange={ e=> setPassword(e.target.value)}
                 />  
                 <p className="error"> {pass}</p>
-                <br></br>
+            <br></br>
             <div className="buttonSection">
                 <Button bg = "info" className= "loginButtons" type="submit"> 
                     {loading? <Link to="/CreatePatient"> "Loading..."</Link>: "Login" }

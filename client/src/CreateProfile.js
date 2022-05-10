@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {Link} from 'react-router-dom';
 import {Button} from 'react-bootstrap';
 import "./App.css"
 
@@ -36,7 +35,7 @@ function CreateProfile ({setUser}) {
             if(response.ok){
                 response.json().then(info=> {
                     setUser(info) 
-                    })
+                })
             }else{
                 response.json().catch(info=> setError(`invalid response`)  )
             }
@@ -70,13 +69,13 @@ function CreateProfile ({setUser}) {
                     <br></br>
                 <label for = "passwordConfirm"><b>Confirm Password:</b></label>
                     <input 
-                    type="password"
-                    placeholder="Confirm Password"
-                    className="createProfileInput"
-                    id="password_confirm"
-                    value={passwordConfirm}
-                    onChange={ x => setPasswordConfirm(x.target.value)}
-                    autoComplete= "current-password"
+                        type="password"
+                        placeholder="Confirm Password"
+                        className="createProfileInput"
+                        id="password_confirm"
+                        value={passwordConfirm}
+                        onChange={ x => setPasswordConfirm(x.target.value)}
+                        autoComplete= "current-password"
                     />
                     <br></br>
                     <div className="buttonChoice">

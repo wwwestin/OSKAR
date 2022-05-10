@@ -18,7 +18,7 @@ function SavedDevices ({user}) {
         fetch("/devices/")
           .then((r) => {return r.json()})
           .then(data => {setDeviceDetails(data)})
-      }, []);
+        }, []);
 
       const patArray = deviceDetails.filter(g => patIds.some(f => g.patient.id === f));
 

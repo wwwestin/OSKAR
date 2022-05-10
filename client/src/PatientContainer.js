@@ -4,8 +4,8 @@ import PatientCard from "./PatientCard";
 function PatientContainer ({patArray}) {
     const patCard = patArray.map((p) => (
         <PatientCard
-        key= {p.id}
-        p= {p}
+            key= {p.id}
+            p= {p}
         />
     ));
 

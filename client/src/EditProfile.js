@@ -55,7 +55,7 @@ function EditProfile ({setUser}) {
                         value={username}
                         onChange={x => setUsername(x.target.value)}
                     />
-                <label for = "password"><b>Type New Password</b></label>
+                    <label for = "password"><b>Type New Password</b></label>
                         <input 
                             id="password" 
                             type="password"
@@ -74,7 +74,7 @@ function EditProfile ({setUser}) {
                         />
                         <br></br>
                         <div className="buttonChoice">
-                        <Button className="btn-gradient" onSubmit={handleSubmit} type="submit" >{loading? "Loading...": "Submit Password Change"}</Button>
+                    <Button className="btn-gradient" onSubmit={handleSubmit} type="submit" >{loading? "Loading...": "Submit Password Change"}</Button>
                 </div>
             </form>
         </div>

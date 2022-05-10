@@ -17,20 +17,20 @@ function Header ({user,onLogout}){
                 <Col style={{display:'flex', justifyContent:'left'}}>
                     <h1 className="title"><b>OSKAR</b></h1>
                 </Col>
-                <Col></Col>
-                <Col style={{display:'flex', justifyContent:'right', paddingTop: 10}}>
-                        {user ? (
-                        <div class= "profile">
-                        <p>Welcome, {user.username}!</p>
-                        <br></br>
-                        <Button bg="grey" class= "logoutButton" onClick={handleLogout}>Logout</Button>
-                    </div>
-                    ) : (
-                    <div>
-                        <Button><a className = "buttonText" href="/">Login</a></Button>
-                    </div>
-                    )}
-                </Col>
+                    <Col></Col>
+                        <Col style={{display:'flex', justifyContent:'right', paddingTop: 10}}>
+                                {user ? (
+                                    <div class= "profile">
+                                        <p>Welcome, {user.username}!</p>
+                                        <br></br>
+                                        <Button bg="grey" class= "logoutButton" onClick={handleLogout}>Logout</Button>
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <Button><a className = "buttonText" href="/">Login</a></Button>
+                                    </div>
+                                    )}
+                        </Col>
             </Row>
             <Row>
                 <Col style={{display:'flex', justifyContent:'left'}}>
@@ -39,26 +39,26 @@ function Header ({user,onLogout}){
             </Row>
                 <div>
                     <Row>
-                    <Col style={{display:'flex', justifyContent:'left'}}>
-                        <Navbar className="navBar" bg = "grey">
-                        <Navbar.Brand href="/">
-                            <img
-                                alt="Person Walking"
-                                src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/walking-icon-18-256.png"
-                                width="30"
-                                height="30"
-                                className="d-inline-block align-top"
-                            />{' '}
-                                <a className = "buttonText" href="/">Home</a>
-                                <a className = "buttonText" href="/CreatePatient">Add Patient</a>
-                                <a className = "buttonText" href="/EditProfile">Edit Profile</a>
-                                <a className = "buttonText" href="/SavedDevices">Saved Devices</a>
-                                <a className = "buttonText" href="/Resources">Resources</a>
-                            </Navbar.Brand>
-                        </Navbar>
-                    </Col>
+                        <Col style={{display:'flex', justifyContent:'left'}}>
+                            <Navbar className="navBar" bg = "grey">
+                            <Navbar.Brand href="/">
+                                <img
+                                    alt="Person Walking"
+                                    src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/walking-icon-18-256.png"
+                                    width="30"
+                                    height="30"
+                                    className="d-inline-block align-top"
+                                />{' '}
+                                    <a className = "buttonText" href="/">Home</a>
+                                    <a className = "buttonText" href="/CreatePatient">Add Patient</a>
+                                    <a className = "buttonText" href="/EditProfile">Edit Profile</a>
+                                    <a className = "buttonText" href="/SavedDevices">Saved Devices</a>
+                                    <a className = "buttonText" href="/Resources">Resources</a>
+                                </Navbar.Brand>
+                            </Navbar>
+                        </Col>
                     <Col></Col>
-                    </Row>
+                </Row>
             </div>
         </Container>
     </div>

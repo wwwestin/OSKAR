@@ -18,7 +18,7 @@ function DeviceRec ({currentPatient, currentDevice}) {
         fetch(`/devices/${id}`)
           .then((r) => r.json())
           .then(data => setShowCurrentDevice(data));
-      }, []);
+      }, [id]);
     
     return (
         <div className= "deviceCard">

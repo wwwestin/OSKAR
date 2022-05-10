@@ -39,9 +39,8 @@ function CreatePatient ({handleAddPatient}) {
                             placeholder= "Add Patient as Number" 
                             onChange={onChange} 
                         />
-                        <Button className="submitButtonDisplay" type="submit" >Submit</Button>
+                            <Button className="submitButtonDisplay" type="submit" >Submit</Button>
                     </form>
-                    
                 </div>
         </div>
     )
