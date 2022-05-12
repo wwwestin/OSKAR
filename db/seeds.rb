@@ -1,8 +1,8 @@
 puts "Creating test users.."
 
-u1 = User.create!(username: "Troy", password: "onetwo")
-u2 = User.create!(username: "Bono", password: "oneone")
-u3 = User.create!(username: "Claire Manix", password: "onethree")
+u1 = User.create!(username: "Gary Bedard", password: "onetwo")
+u2 = User.create!(username: "Tom DiBello", password: "oneone")
+u3 = User.create!(username: "Claire Manix-Cramer", password: "onethree")
 
 puts "Creating test patients.."
 p1= Patient.create!(name: 123, goal: "Stepping", mmt: "Knee Flexion= 3/5, Knee Extension = 3/5, Dorsiflexion = 1/5, Plantarflexion = 2/5", user_id: u1.id)
