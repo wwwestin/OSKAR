@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import {Container, Row, Col, Navbar, Button} from "react-bootstrap"
+import logo from "/Users/westinhumble/Desktop/code/OSKAR/client/src/assets/logo.png"
+
 
 function Header ({user,onLogout}){
     
@@ -11,52 +13,47 @@ function Header ({user,onLogout}){
         }
     
     return (
-        <div>
+        <div >
             <Container>
+                <Row>
+                    <Col style={{display:'flex', justifyContent:'left'}}>
+                        <img src={logo} alt="OSKAR logo"/>
+                    </Col>
+                </Row>
             <Row>
-                <Col style={{display:'flex', justifyContent:'left'}}>
-                    <h1 className="title"><b>OSKAR</b></h1>
-                </Col>
-                    <Col></Col>
-                        <Col style={{display:'flex', justifyContent:'right', paddingTop: 10}}>
-                                {user ? (
-                                    <div class= "profile">
-                                        <p>Welcome, {user.username}!</p>
-                                        <br></br>
-                                        <Button bg="grey" class= "logoutButton" onClick={handleLogout}>Logout</Button>
-                                    </div>
-                                ) : (
-                                    <div>
-                                        <Button><a className = "buttonText" href="/">Login</a></Button>
-                                    </div>
-                                    )}
-                        </Col>
-            </Row>
-            <Row>
-                <Col style={{display:'flex', justifyContent:'left'}}>
-                    <p className="acronym"><b>O</b>ptimal <b>S</b>egmental <b>K</b>inematics and <b>A</b>lignment approach to <b>R</b>ehabilitation</p>
-                </Col>
+                <div>
+                    {user ? 
+                        <p style={{textAlign: "right"}}>Welcome, {user.username}!</p> : null}
+                        
+                </div>
             </Row>
                 <div>
                     <Row>
-                        <Col style={{display:'flex', justifyContent:'left'}}>
-                            <Navbar className="navBar" bg = "grey">
-                            <Navbar.Brand href="/">
-                                <img
-                                    alt="Person Walking"
-                                    src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/walking-icon-18-256.png"
-                                    width="30"
-                                    height="30"
-                                    className="d-inline-block align-top"
-                                />{' '}
-                                    <a className = "buttonText" href="/">Home</a>
-                                    <a className = "buttonText" href="/CreatePatient">Add Patient</a>
-                                    <a className = "buttonText" href="/EditProfile">Edit Profile</a>
-                                    <a className = "buttonText" href="/SavedDevices">Saved Devices</a>
-                                    <a className = "buttonText" href="/Resources">Resources</a>
-                                </Navbar.Brand>
-                            </Navbar>
-                        </Col>
+                            <div>
+                                <Col style={{display:'flex', justifyContent:'left'}}>
+                                    <Navbar className="navBar" bg = "grey">
+                                        <Navbar.Brand href="/">
+                                            <img
+                                                alt="Person Walking"
+                                                src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/walking-icon-18-256.png"
+                                                width="30"
+                                                height="30"
+                                                className="d-inline-block align-top"
+                                            />{' '}
+                                                <a className = "buttonText" href="/">Home</a>
+                                                <a className = "buttonText" href="/CreatePatient">Add Patient</a>
+                                                <a className = "buttonText" href="/EditProfile">Edit Profile</a>
+                                                <a className = "buttonText" href="/SavedDevices">Saved Devices</a>
+                                                <a className = "buttonText" href="/Resources">Resources</a>
+                                            </Navbar.Brand>
+                                                {user ? (
+                                                    <a className = "buttonText" onClick={handleLogout}>Logout</a>
+                                                ):(
+                                                    <a className = "buttonText" href="/">Login</a>
+                                                )}
+                                    </Navbar>
+                                </Col>
+                            </div>
                     <Col></Col>
                 </Row>
             </div>

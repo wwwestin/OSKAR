@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 import Login from "./Login";
 import CreateProfile from "./CreateProfile";
 import Header from "./Header";
@@ -14,11 +14,14 @@ import DeviceRec from "./DeviceRec";
 import Resources from "./Resources";
 
 
+
 function App() {
 
   const [user, setUser] = useState(null);
   const [currentPatient, setCurrentPatient] = useState([]);
   const [currentDevice, setCurrentDevice] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -30,6 +33,7 @@ function App() {
 
   function handleLogin(user){
     setUser(user)
+    navigate("CreatePatient")
   }
 
    function handleLogout() {
@@ -46,25 +50,31 @@ function App() {
   
   return (
     <div className="App">
-       <Header user={user} onLogout={handleLogout}/>
-        <Routes>
-          <Route path= "/" element={ <Login user={user} onLogin={handleLogin}/> } />
-          <Route path= "/CreateProfile" element={ <CreateProfile setUser = {setUser} user = {user} /> } />
-          <Route path= "/EditProfile" element = { <EditProfile setUser = {setUser} user = {user}/> } />
-          <Route path= "/SavedDevices" element = { <SavedDevices user = {user}/> } />
-          <Route path= "/CreatePatient" element = { <CreatePatient handleAddPatient={handleAddPatient}/> } />
-          <Route path= "/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
-          <Route path= "/CreatePatient/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
-          <Route path= "/PatientRom" element = { <PatientRom handleAddDevice={handleAddDevice} currentPatient = {currentPatient} /> } />
-          <Route path= "/CreatePatient/PatientGoals/PatientRom" element = { <PatientRom handleAddDevice={handleAddDevice} currentPatient = {currentPatient}/> } />
-          <Route path= "/PatientMmt" element = { <PatientMmt currentPatient = {currentPatient} /> } />
-          <Route path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt" element = { <PatientMmt currentPatient = {currentPatient} /> } />
-          <Route path= "/PatientGait" element = { <PatientGait currentDevice = {currentDevice} /> } />
-          <Route path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt/PatientGait" element = { <PatientGait currentDevice = {currentDevice} /> } />
-          <Route path= "/DeviceRec" element = { <DeviceRec currentPatient = {currentPatient} currentDevice = {currentDevice} /> } />
-          <Route path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt/PatientGait/DeviceRec" element = { <DeviceRec currentPatient = {currentPatient} currentDevice = {currentDevice} /> } />
-          <Route path= "/Resources" element = { <Resources /> } />
-        </Routes>
+      <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <div>
+          <Header user={user} onLogout={handleLogout}/>
+        </div>
+          <div>
+            <Routes>
+              <Route path= "/" element={ <Login user={user} onLogin={handleLogin}/> } />
+              <Route path= "/CreateProfile" element={ <CreateProfile setUser = {setUser} user = {user} /> } />
+              <Route path= "/EditProfile" element = { <EditProfile setUser = {setUser} user = {user}/> } />
+              <Route path= "/SavedDevices" element = { <SavedDevices user = {user}/> } />
+              <Route path= "/CreatePatient" element = { <CreatePatient handleAddPatient={handleAddPatient}/> } />
+              <Route path= "/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
+              <Route path= "/CreatePatient/PatientGoals" element = { <PatientGoals currentPatient = {currentPatient} /> } />
+              <Route path= "/PatientRom" element = { <PatientRom handleAddDevice={handleAddDevice} currentPatient = {currentPatient} /> } />
+              <Route path= "/CreatePatient/PatientGoals/PatientRom" element = { <PatientRom handleAddDevice={handleAddDevice} currentPatient = {currentPatient}/> } />
+              <Route path= "/PatientMmt" element = { <PatientMmt currentPatient = {currentPatient} /> } />
+              <Route path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt" element = { <PatientMmt currentPatient = {currentPatient} /> } />
+              <Route path= "/PatientGait" element = { <PatientGait currentDevice = {currentDevice} /> } />
+              <Route path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt/PatientGait" element = { <PatientGait currentDevice = {currentDevice} /> } />
+              <Route path= "/DeviceRec" element = { <DeviceRec currentPatient = {currentPatient} currentDevice = {currentDevice} /> } />
+              <Route path= "/CreatePatient/PatientGoals/PatientRom/PatientMmt/PatientGait/DeviceRec" element = { <DeviceRec currentPatient = {currentPatient} currentDevice = {currentDevice} /> } />
+              <Route path= "/Resources" element = { <Resources /> } />
+            </Routes>
+          </div>
+        </div>
     </div>
   );
 }
