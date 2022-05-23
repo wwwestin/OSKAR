@@ -45,12 +45,14 @@ function Header ({user,onLogout}){
                                                 <a className = "buttonText" href="/EditProfile">Edit Profile</a>
                                                 <a className = "buttonText" href="/SavedDevices">Saved Devices</a>
                                                 <a className = "buttonText" href="/Resources">Resources</a>
-                                            </Navbar.Brand>
-                                                {user ? (
-                                                    <a className = "buttonText" onClick={handleLogout}>Logout</a>
-                                                ):(
-                                                    <a className = "buttonText" href="/">Login</a>
-                                                )}
+                                            </Navbar.Brand> 
+                                                <Col style={{display:'flex', justifyContent:'right'}}>
+                                                    {user ? (
+                                                        <a className = "authButton" onClick={handleLogout}>Logout</a>
+                                                        ):(
+                                                        <a className = "authButton" href="/">Login</a>
+                                                    )}
+                                                </Col>
                                     </Navbar>
                                 </Col>
                             </div>
