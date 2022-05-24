@@ -38,28 +38,23 @@ function Login ({onLogin}) {
 
 return (
       <form onSubmit={handleSubmit} className="loginContainer">
-        <label for="username"><b>Username</b> </label>
-            <br></br>
+        <label for="username"><b>Username:</b> </label>
             <input type="text" 
                 id="username" 
-                placeholder="Username" 
                 name="username"
-                className="inputLogin"
+                className="loginInput"
                 required value={username}
                 onChange={e => setUsername(e.target.value) }
             />
                 <p className="error">{error}</p>
-            <br></br>
-            <label for="password"> <b>Password</b> </label>
-            <br></br>
+            <label for="password"><b>Password:</b></label>
                 <input 
                     type="password" 
-                    placeholder="Password" 
                     name="password" 
-                    className="inputLogin"
+                    className="loginInput"
                     required id="password"
                     value={password}
-                    onChange={ e=> setPassword(e.target.value)}
+                    onChange={e=> setPassword(e.target.value)}
                 />  
                 <p className="error"> {pass}</p>
             <br></br>
@@ -67,9 +62,9 @@ return (
                 <Button bg = "info" className= "loginButtons" type="submit"> 
                     {loading? <Link to="/CreatePatient"> "Loading..."</Link>: "Login" }
                 </Button>
-            <Link to="/CreateProfile"> <Button bg = "info" className= "loginButtons">Create Profile</Button> </Link>
-        </div>
-    </form>
+                <Link to="/CreateProfile"> <Button bg = "info" className= "loginButtons">Create Profile</Button> </Link>
+            </div>
+        </form>
     )
 }
 

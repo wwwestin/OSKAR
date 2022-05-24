@@ -57,21 +57,22 @@ background-color: dimgray;
   min-width: 70vw;
 }
 
-
 .loginContainer {
+  display: table-cell;
   margin-top: 150px;
   display: inline-block;
   clear: right;
   text-align: center;
-  width: 250px;
+  width: 700px;
   border: 2px solid dimgray;
-  padding-bottom: 30px;
-  padding-top: 5px;
+  padding-bottom: 50px;
+  padding-top: 50px;
   border-radius: .75rem;
 }
 
-.inputLogin {
+.loginInput {
   opacity: .7;
+  width: 180px;
   border-radius: .3rem;
 }
 
@@ -84,7 +85,7 @@ background-color: dimgray;
   display: inline-block;
   clear: right;
   text-align: center;
-  width: 250px;
+  width: 700px;
   border: 2px solid dimgray;
   padding-bottom: 20px;
   padding-top: 5px;

@@ -49,7 +49,6 @@ function CreateProfile ({setUser}) {
                 <label for = "username"><b>Username:</b></label>
                     <input 
                         id="username" 
-                        placeholder="Username"
                         type="text"
                         className="createProfileInput"
                         value={username}
@@ -60,7 +59,6 @@ function CreateProfile ({setUser}) {
                     <input 
                         id="password" 
                         type="password"
-                        placeholder="Password"
                         value={password}
                         className="createProfileInput"
                         onChange={x => setPassword(x.target.value)}
@@ -70,7 +68,6 @@ function CreateProfile ({setUser}) {
                 <label for = "passwordConfirm"><b>Confirm Password:</b></label>
                     <input 
                         type="password"
-                        placeholder="Confirm Password"
                         className="createProfileInput"
                         id="password_confirm"
                         value={passwordConfirm}
