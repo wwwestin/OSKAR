@@ -1,6 +1,6 @@
 puts "Creating test users.."
 
-u1 = User.create!(username: "Gary Bedard", password: "onetwo")
+u1 = User.create!(username: "Elaine Owen", password: "onetwo")
 u2 = User.create!(username: "Tom DiBello", password: "oneone")
 u3 = User.create!(username: "Claire Manix-Cramer", password: "onethree")
 

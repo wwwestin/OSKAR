@@ -70,8 +70,6 @@ background-color: dimgray;
 }
 
 .usernameInput {
-  float: center;
-  text-align: center;
   opacity: .7;
   width: 180px;
   border-radius: .3rem;
