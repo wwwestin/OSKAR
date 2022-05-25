@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import {Container, Row, Col, Navbar, Button} from "react-bootstrap"
+import {Container, Row, Col, Navbar} from "react-bootstrap"
 import logo from "/Users/westinhumble/Desktop/code/OSKAR/client/src/assets/logo.png"
 
 

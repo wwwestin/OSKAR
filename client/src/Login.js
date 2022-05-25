@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom"
-import {Button} from 'react-bootstrap';
+import {Button, Row, Col} from 'react-bootstrap';
 import "./App.css"
 
 
@@ -38,33 +38,44 @@ function Login ({onLogin}) {
 
 return (
       <form onSubmit={handleSubmit} className="loginContainer">
-        <label for="username"><b>Username:</b> </label>
-            <input type="text" 
-                id="username" 
-                name="username"
-                className="loginInput"
-                required value={username}
-                onChange={e => setUsername(e.target.value) }
-            />
-                <p className="error">{error}</p>
-            <label for="password"><b>Password:</b></label>
-                <input 
-                    type="password" 
-                    name="password" 
-                    className="loginInput"
-                    required id="password"
-                    value={password}
-                    onChange={e=> setPassword(e.target.value)}
-                />  
-                <p className="error"> {pass}</p>
-            <br></br>
-            <div className="buttonSection">
-                <Button bg = "info" className= "loginButtons" type="submit"> 
-                    {loading? <Link to="/CreatePatient"> "Loading..."</Link>: "Login" }
-                </Button>
-                <Link to="/CreateProfile"> <Button bg = "info" className= "loginButtons">Create Profile</Button> </Link>
-            </div>
-        </form>
+          <Row>
+              <Col style={{display:'flex', justifyContent:'center'}}>
+                <label for="username" className = "loginUsernameText">Username:</label>
+                    <input type="text" 
+                        id="username" 
+                        name="username"
+                        className="usernameInput"
+                        required value={username}
+                        onChange={e => setUsername(e.target.value) }
+                />
+                    <p className="error">{error}</p>
+                </Col>
+            </Row>
+                <Row >
+                    <Col style={{display:'flex', justifyContent:'center'}}>
+                        <label for="password" className = "loginPasswordText">Password:</label>
+                            <input 
+                                type="password" 
+                                name="password" 
+                                className="passwordInput"
+                                required id="password"
+                                value={password}
+                                onChange={e=> setPassword(e.target.value)}
+                        />  
+                    <p className="error"> {pass}</p>
+                </Col>
+            </Row>
+            <Row >
+                <Col style={{display:'flex', justifyContent:'center'}}>
+                    <div className="buttonSection">
+                        <Button bg = "info" className= "loginButtons" type="submit"> 
+                            {loading? <Link to="/CreatePatient"> "Loading..."</Link>: "Login" }
+                        </Button>
+                        <Link to="/CreateProfile"> <Button bg = "info" className= "loginButtons">Create Profile</Button> </Link>
+                    </div>
+                </Col>
+            </Row>
+        </form>  
     )
 }
 
