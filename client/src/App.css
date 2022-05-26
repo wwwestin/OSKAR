@@ -127,11 +127,23 @@ background-color: dimgray;
 .addPatient {
   margin-top: 150px;
   border: 2px solid dimgray;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding-bottom: 0px;
+  padding-top: 10px;
   border-radius: .75rem;
-  width: 500px;
+  width: 900px;
+  height: 200px;
   display: inline-block;
+}
+
+.addPatientText {
+margin-top: -5px;
+margin-bottom: -3px;
+font-size: 12px;
+}
+
+.submitButtonDisplay {
+  margin-top: 5px !important;
+  width: 100px !important;
 }
 
 .patientGoals {
@@ -239,7 +251,7 @@ ul {
 }
 
 .message {
-  animation: fadein 5s;
+  animation: fadein 8s;
   margin-top: 150px;
   
 }

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {Button} from 'react-bootstrap';
+import {Button, Row, Col} from 'react-bootstrap';
 import "./App.css"
 
 function CreatePatient ({handleAddPatient}) {
@@ -28,21 +28,27 @@ function CreatePatient ({handleAddPatient}) {
     }
 
     return (
-        <div>
-            <div className = "addPatient">
-                <h2>Add a Patient (De-Identified)</h2>
-                    <form onSubmit={handleSubmit}>
-                        <input 
-                            className="addPatientForm" 
-                            type="integer"
-                            name="name" 
-                            placeholder= "Add Patient as Number" 
-                            onChange={onChange} 
-                        />
-                            <Button className="submitButtonDisplay" type="submit" >Submit</Button>
-                    </form>
+        <Row>
+            <Col>
+                <div>
+                    <div className = "addPatient">
+                        <h2>Add a Patient (De-Identified)</h2>
+                            <p className= "addPatientText">Enter as Number</p>
+                            <form onSubmit={handleSubmit}>
+                                <input 
+                                    className="addPatientForm" 
+                                    type="integer"
+                                    name="name"  
+                                    onChange={onChange} 
+                                />
+                                <Row style={{display: 'flex', justifyContent:'center'}}>
+                                    <Button className="submitButtonDisplay" type="submit" >Submit</Button>
+                                    </Row>
+                            </form>
+                    </div>
                 </div>
-        </div>
+            </Col>
+        </Row>
     )
 }
 
