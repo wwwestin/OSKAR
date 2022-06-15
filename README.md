@@ -4,7 +4,7 @@ Based entirely on the comprehensive work of Elaine Owen MBE, MSc, SRP, MCSP. Thi
 
 ## Description
 
- ![](assets/home.png)
+ ![](client/assets/home.png)
 
 An in-depth paragraph about your project and overview of use.
 
