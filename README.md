@@ -4,7 +4,7 @@ Based entirely on the comprehensive work of Elaine Owen MBE, MSc, SRP, MCSP. Thi
 
 ## Description
 
- ![]()(/Users/westinhumble/Desktop/code/OSKAR/client/src/assets/home.png)
+ ![]()(assets/home.png)
 
 An in-depth paragraph about your project and overview of use.
 
