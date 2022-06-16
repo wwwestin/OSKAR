@@ -57,55 +57,48 @@ Patients can then be created using deindentified information, and patient presen
 * Active Model Serializers: "~> 0.10.12"
 
 
-### Installing
+### Installing/Executing Program
 
 #### **Clone this repository**
 ```
 git clone https://github.com/wwwestin/OSKAR.git
 ```
-
-### Executing program
-
+#### **Open text editor and install frontend dependencies**
 ```
 npm install
 ```
-
+#### **Install backend dependencies**
 ```
 bundle install
 ```
-
+#### **Create database**
 ```
 db:create
 ```
-
+#### **Start backend server**
 ```
 rails s
 ```
-
+#### **Start/open application**
 ```
 npm start
 ```
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+* Any and all troubleshooting inqueries: westin.h@gmail.com
+* Will respond within (max) one business day
 
 ## Authors
 
-Contributors names and contact info
+Contributor name and contact info:
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+Westin Humble, MS, CPO (ABC Certified and ISPO Registered Prosthetist/Orthotist)
+https://github.com/wwwestin
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
+* 0.1.0
     * Initial Release
 
 ## License
@@ -114,4 +107,4 @@ This project is licensed under the [NAME HERE] License - see the LICENSE.md file
 
 ## Acknowledgments
 
-* 
+* A huge thanks and acknowledgement to Elaine Owen MBE, MSc, SRP, MCSP for her tireless and thorough work to systematize and standardize orthosis configuration and benefit thousands of patients across the globe!
