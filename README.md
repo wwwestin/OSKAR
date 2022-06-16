@@ -8,6 +8,7 @@ Based entirely on the comprehensive work of Elaine Owen MBE, MSc, SRP, MCSP. Thi
 This web application is designed for healthcare practitioners (Orthotists/Physical Therapists) to quickly and accurately return orthotic brace configurations based on patient presentation and the methodology derived and compiled by Elaine Owen MBE, MSc, SRP, MCSP. 
 
 Healthcare practitioners can create their profile and log in using their provided credentials:
+
  ![](client/src/assets/home.png)
 
 Patients can then be created using deindentified information, and patient presentation is then selected based on healthcare practitioner clinical findings:
@@ -15,6 +16,7 @@ Patients can then be created using deindentified information, and patient presen
  ![](client/src/assets/patientpres2.png)
 
  Orthotic brace recommendations are then returned based on selected patient presentation and saved to the healthcare practitioner's profile:
+
  ![](client/src/assets/savedpres.png)
 
  Additional functionality includes a Resources section that links to all of Elaine Owen's publicly available published works as well as healthcare practitioner login credential modification.
@@ -27,6 +29,7 @@ Patients can then be created using deindentified information, and patient presen
  - React Bootstrap
 
  Data Model:
+
 ![](client/src/assets/dbmodel.png)
 
 
@@ -57,16 +60,30 @@ Patients can then be created using deindentified information, and patient presen
 ### Installing
 
 #### **Clone this repository**
-```bash
+```
 git clone https://github.com/wwwestin/OSKAR.git
 ```
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
 ```
-code blocks for commands
+npm install
+```
+
+```
+bundle install
+```
+
+```
+db:create
+```
+
+```
+rails s
+```
+
+```
+npm start
 ```
 
 ## Help
