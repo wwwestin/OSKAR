@@ -12,6 +12,7 @@ Healthcare practitioners can create their profile and log in using their provide
  ![](client/src/assets/home.png)
 
 Patients can then be created using deindentified information, and patient presentation is then selected based on healthcare practitioner clinical findings:
+
  ![](client/src/assets/patientpres1.png)
  ![](client/src/assets/patientpres2.png)
 
@@ -93,8 +94,9 @@ npm start
 
 Contributor name and contact info:
 
-Westin Humble, MS, CPO (ABC Certified and ISPO Registered Prosthetist/Orthotist)
+* Westin Humble, MS, CPO (ABC Certified and ISPO Registered Prosthetist/Orthotist)
 https://github.com/wwwestin
+https://www.linkedin.com/in/westinhumble/
 
 ## Version History
 
@@ -103,7 +105,7 @@ https://github.com/wwwestin
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
 ## Acknowledgments
 
