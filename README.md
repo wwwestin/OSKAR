@@ -56,8 +56,10 @@ Patients can then be created using deindentified information, and patient presen
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+#### **Clone this repository**
+```bash
+git clone https://github.com/wwwestin/OSKAR.git
+```
 
 ### Executing program
 
