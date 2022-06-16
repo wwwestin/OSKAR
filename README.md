@@ -60,27 +60,27 @@ Patients can then be created using deindentified information, and patient presen
 
 ### Installing/Executing Program
 
-#### **Clone this repository**
+#### **Clone this repository:**
 ```
 git clone https://github.com/wwwestin/OSKAR.git
 ```
-#### **Open text editor and install frontend dependencies**
+#### **Open text editor and install frontend dependencies:**
 ```
 npm install
 ```
-#### **Install backend dependencies**
+#### **Install backend dependencies:**
 ```
 bundle install
 ```
-#### **Create database**
+#### **Create database:**
 ```
 db:create
 ```
-#### **Start backend server**
+#### **Start backend server:**
 ```
 rails s
 ```
-#### **Start/open application**
+#### **Start/open application:**
 ```
 npm start
 ```
@@ -95,7 +95,8 @@ npm start
 Contributor name and contact info:
 
 * Westin Humble, MS, CPO (ABC Certified and ISPO Registered Prosthetist/Orthotist)
-https://github.com/wwwestin
+https://github.com/wwwestin 
+
 https://www.linkedin.com/in/westinhumble/
 
 ## Version History
