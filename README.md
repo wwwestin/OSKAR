@@ -94,10 +94,9 @@ npm start
 
 Contributor name and contact info:
 
-* Westin Humble, MS, CPO (ABC Certified and ISPO Registered Prosthetist/Orthotist)
-https://github.com/wwwestin 
-
-https://www.linkedin.com/in/westinhumble/
+Westin Humble, MS, CPO (ABC Certified and ISPO Registered Prosthetist/Orthotist)
+* https://github.com/wwwestin 
+* https://www.linkedin.com/in/westinhumble/
 
 ## Version History
 
